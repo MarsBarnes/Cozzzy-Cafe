@@ -1,0 +1,27 @@
+Sprite,OrderNumber,NewNumber,LayerNumber,AdditionalLayerNumbers
+Stage,0,0,0,
+PlayButton,1,1,5,
+Barista,2,2,10,
+Baristaspeech,2,3,15,
+Bar,3,4,20,
+KitchenBar,3,5,25,
+Placemat1,4,6,30,
+Placemat2,4,7,35,
+Placemat3,4,8,40,
+Tray,5,9,45,
+CoffeeMug2,6,10,50,1
+Teacup2,6,11,55,2
+Waterglass2,6,12,60,3
+Coffee,6,13,65,
+Tea,6,14,70,
+Water,6,15,75,
+Money,6,16,80,
+Blankspeechbubble,7,17,85,
+Customer,7,18,90,
+DrinkMakers,7,19,95,
+Bubblemug,8,20,100,
+Bubbleteacup,8,21,105,
+Bubblewaterglass,8,22,110,
+
+
+Also saved on google drive under file name SpriteLayers
