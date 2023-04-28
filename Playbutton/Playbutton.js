@@ -1,0 +1,48 @@
+/* eslint-disable require-yield, eqeqeq */
+
+import {
+  Sprite,
+  Trigger,
+  Watcher,
+  Costume,
+  Color,
+  Sound
+} from "https://unpkg.com/leopard@^1/dist/index.esm.js";
+
+export default class Playbutton extends Sprite {
+  constructor(...args) {
+    super(...args);
+
+    this.costumes = [
+      new Costume("PlayButton", "./Playbutton/costumes/PlayButton.png", {
+        x: 172,
+        y: 37
+      })
+    ];
+
+    this.sounds = [];
+
+    this.triggers = [
+      new Trigger(Trigger.GREEN_FLAG, this.whenGreenFlagClicked),
+      new Trigger(Trigger.CLICKED, this.whenthisspriteclicked)
+    ];
+  }
+
+  *whenGreenFlagClicked() {
+    this.goto(0, -100);
+    this.visible = true;
+    yield* this.goToLayer(1);
+  }
+
+  *whenthisspriteclicked() {
+    this.broadcast("StartGame");
+    this.visible = false;
+    this.stage.costume = "Bar";
+    this.broadcast("NewCustomer");
+  }
+
+  *goToLayer(layerNumber) {
+    this.moveBehind();
+    this.moveAhead(this.toNumber(layerNumber) - 1);
+  }
+}
