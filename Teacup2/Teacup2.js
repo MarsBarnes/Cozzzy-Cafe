@@ -63,7 +63,7 @@ export default class Teacup2 extends Sprite {
     this.watchers.ontray.visible = false;
     this.vars.ontray = 0;
     this.stage.vars.teacupontray = 0;
-    this.goto(-50, 124);
+    this.goto(-150, 162);
     this.visible = false;
     while (true) {
       if (this.toNumber(this.vars.ontray) === 0) {
@@ -120,7 +120,7 @@ export default class Teacup2 extends Sprite {
       this.vars.ontray = 0;
       this.stage.vars.teacupontray = 0;
       if (this.stage.costume.name === "Kitchen") {
-        this.goto(-50, 124);
+        this.goto(-150, 162);
         return;
       } else {
         this.vars.ontray = 2;
@@ -174,7 +174,7 @@ export default class Teacup2 extends Sprite {
       // used to go to layer 5 here
       this.costume = "EmptyTeaCup";
       this.stage.vars.teacupvolume = 0;
-      this.goto(-50, 124);
+      this.goto(-150, 162);
       this.vars.ontray = 0;
       this.visible = false;
     }
@@ -192,7 +192,7 @@ export default class Teacup2 extends Sprite {
       // used to go to layer 5 here
       this.costume = "EmptyTeaCup";
       this.stage.vars.teacupvolume = 0;
-      this.goto(-50, 124);
+      this.goto(-150, 162);
       this.vars.ontray = 0;
       this.visible = false;
     }
@@ -210,7 +210,7 @@ export default class Teacup2 extends Sprite {
       // used to go to layer 5 here
       this.costume = "EmptyTeaCup";
       this.stage.vars.teacupvolume = 0;
-      this.goto(-50, 124);
+      this.goto(-150, 162);
       this.vars.ontray = 0;
       this.visible = false;
     }

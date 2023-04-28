@@ -73,7 +73,7 @@ export default class Waterglass2 extends Sprite {
       this.vars.ontray = 0;
       this.stage.vars.waterglassontray = 0;
       if (this.stage.costume.name === "Kitchen") {
-        this.goto(-35, 86);
+        this.goto(-100, 162);
         return;
       } else {
         this.vars.ontray = 2;
@@ -108,7 +108,7 @@ export default class Waterglass2 extends Sprite {
     this.watchers.ontray.visible = false;
     this.vars.ontray = 0;
     this.stage.vars.waterglassontray = 0;
-    this.goto(-35, 86);
+    this.goto(-100, 162);
     this.visible = false;
     while (true) {
       if (this.toNumber(this.vars.ontray) === 0) {
@@ -180,7 +180,7 @@ export default class Waterglass2 extends Sprite {
       // //this._layerOrder = 3;
       this.costume = "EmptyWaterGlass";
       this.stage.vars.waterglassvolume = 0;
-      this.goto(-35, 86);
+      this.goto(-100, 162);
       this.vars.ontray = 0;
       this.visible = false;
     }
@@ -198,7 +198,7 @@ export default class Waterglass2 extends Sprite {
       // //this._layerOrder = 3;
       this.costume = "EmptyWaterGlass";
       this.stage.vars.waterglassvolume = 0;
-      this.goto(-35, 86);
+      this.goto(-100, 162);
       this.vars.ontray = 0;
       this.visible = false;
     }
@@ -216,7 +216,7 @@ export default class Waterglass2 extends Sprite {
       // //this._layerOrder = 3;
       this.costume = "EmptyWaterGlass";
       this.stage.vars.waterglassvolume = 0;
-      this.goto(-35, 86);
+      this.goto(-100, 162);
       this.vars.ontray = 0;
       this.visible = false;
     }
