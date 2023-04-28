@@ -31,7 +31,7 @@ export default class Playbutton extends Sprite {
   *whenGreenFlagClicked() {
     this.goto(0, -100);
     this.visible = true;
-    yield* this.goToLayer(1);
+    
   }
 
   *whenthisspriteclicked() {
@@ -41,8 +41,4 @@ export default class Playbutton extends Sprite {
     this.broadcast("NewCustomer");
   }
 
-  *goToLayer(layerNumber) {
-    this.moveBehind();
-    this.moveAhead(this.toNumber(layerNumber) - 1);
-  }
 }

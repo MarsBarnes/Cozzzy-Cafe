@@ -32,7 +32,7 @@ export default class Bar extends Sprite {
 
   *whenGreenFlagClicked() {
     this.visible = false;
-    yield* this.goToLayer(3);
+    
   }
 
   *whenIReceiveStartgame() {
@@ -43,16 +43,12 @@ export default class Bar extends Sprite {
       }
       if (this.stage.costume.name === "Bar") {
         this.visible = true;
-        yield* this.goToLayer(3);
+        
       }
       yield;
     }
   }
 
-  *goToLayer(layerNumber) {
-    this.moveBehind();
-    this.moveAhead(this.toNumber(layerNumber) - 1);
-  }
 
   *whenGreenFlagClicked2() {
     this.visible = false;

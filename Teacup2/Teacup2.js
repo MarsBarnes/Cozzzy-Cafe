@@ -56,7 +56,7 @@ export default class Teacup2 extends Sprite {
   *whenGreenFlagClicked() {
     this.costume = "EmptyTeaCup";
     this.visible = false;
-    yield* this.goToLayer(1);
+    
   }
 
   *whenIReceiveStartgame() {
@@ -67,13 +67,13 @@ export default class Teacup2 extends Sprite {
     this.visible = false;
     while (true) {
       if (this.toNumber(this.vars.ontray) === 0) {
-        yield* this.goToLayer(1);
+        //this._layerOrder = 2;
       }
       if (this.toNumber(this.vars.ontray) === 1) {
-        yield* this.goToLayer(6);
+        //this._layerOrder = 55;
       }
       if (this.toNumber(this.vars.ontray) === 2) {
-        yield* this.goToLayer(5);
+        //this._layerOrder = 55;
       }
       if (
         this.stage.costume.name === "Kitchen" &&
@@ -127,7 +127,7 @@ export default class Teacup2 extends Sprite {
         this.stage.vars.teacupontray = 0;
         this.y -= 30;
         this.stage.vars.teacupx = this.x;
-        yield* this.goToLayer(6);
+        
         this.visible = true;
         if (
           this.toNumber(this.stage.vars.randomdrinknumber) === 2 &&
@@ -171,7 +171,7 @@ export default class Teacup2 extends Sprite {
         this.sprites["Customer"].x,
         this.sprites["Customer"].y
       );
-      this.warp(this.goToLayer)(5);
+      // used to go to layer 5 here
       this.costume = "EmptyTeaCup";
       this.stage.vars.teacupvolume = 0;
       this.goto(-50, 124);
@@ -189,7 +189,7 @@ export default class Teacup2 extends Sprite {
         this.sprites["Customer"].x,
         this.sprites["Customer"].y
       );
-      this.warp(this.goToLayer)(5);
+      // used to go to layer 5 here
       this.costume = "EmptyTeaCup";
       this.stage.vars.teacupvolume = 0;
       this.goto(-50, 124);
@@ -207,7 +207,7 @@ export default class Teacup2 extends Sprite {
         this.sprites["Customer"].x,
         this.sprites["Customer"].y
       );
-      this.warp(this.goToLayer)(5);
+      // used to go to layer 5 here
       this.costume = "EmptyTeaCup";
       this.stage.vars.teacupvolume = 0;
       this.goto(-50, 124);
@@ -216,8 +216,4 @@ export default class Teacup2 extends Sprite {
     }
   }
 
-  *goToLayer(layerNumber) {
-    this.moveBehind();
-    this.moveAhead(this.toNumber(layerNumber) - 1);
-  }
 }

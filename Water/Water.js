@@ -90,7 +90,7 @@ export default class Water extends Sprite {
 
   *whenGreenFlagClicked() {
     this.visible = false;
-    yield* this.goToLayer(6);
+    
   }
 
   *whenIReceiveStartgame() {
@@ -147,8 +147,4 @@ export default class Water extends Sprite {
     }
   }
 
-  *goToLayer(layerNumber) {
-    this.moveBehind();
-    this.moveAhead(this.toNumber(layerNumber) - 1);
-  }
 }

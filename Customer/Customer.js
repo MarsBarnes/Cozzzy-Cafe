@@ -111,15 +111,12 @@ export default class Customer extends Sprite {
         this.stage.costume.name === "Bar" &&
         this.compare(this.stage.vars.customerlocation, 175) < 0
       ) {
-        yield* this.goToLayer(7);
+        yield
         this.visible = true;
       }
       yield;
     }
   }
 
-  *goToLayer(layerNumber) {
-    this.moveBehind();
-    this.moveAhead(this.toNumber(layerNumber) - 1);
-  }
+
 }

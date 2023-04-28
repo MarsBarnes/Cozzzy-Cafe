@@ -1,5 +1,7 @@
 /* eslint-disable require-yield, eqeqeq */
 
+/* OnTray variable key:   0. In Cabinet     1.OnTray    2. On Bar */
+
 import {
   Sprite,
   Trigger,
@@ -59,7 +61,7 @@ export default class Waterglass2 extends Sprite {
     this.visible = false;
     this.costume = "EmptyWaterGlass";
     this.stage.vars.waterglassvolume = 0;
-    yield* this.goToLayer(1);
+
   }
 
   *whenthisspriteclicked() {
@@ -78,7 +80,7 @@ export default class Waterglass2 extends Sprite {
         this.stage.vars.waterglassontray = 0;
         this.y -= 30;
         this.stage.vars.waterglassx = this.x;
-        yield* this.goToLayer(6);
+
         this.visible = true;
         if (
           this.toNumber(this.stage.vars.randomdrinknumber) === 3 &&
@@ -110,13 +112,13 @@ export default class Waterglass2 extends Sprite {
     this.visible = false;
     while (true) {
       if (this.toNumber(this.vars.ontray) === 0) {
-        yield* this.goToLayer(1);
+        // //this._layerOrder = 3;
       }
       if (this.toNumber(this.vars.ontray) === 1) {
-        yield* this.goToLayer(6);
+        // //this._layerOrder = 60;
       }
       if (this.toNumber(this.vars.ontray) === 2) {
-        yield* this.goToLayer(5);
+        // //this._layerOrder = 60;
       }
       if (
         this.stage.costume.name === "Kitchen" &&
@@ -169,12 +171,13 @@ export default class Waterglass2 extends Sprite {
     ) {
       this.broadcast("OrderComplete");
       yield* this.wait(2);
+      console.log("water layer", this._layerOrder);
       yield* this.glide(
         1,
         this.sprites["Customer"].x,
         this.sprites["Customer"].y
       );
-      this.warp(this.goToLayer)(5);
+      // //this._layerOrder = 3;
       this.costume = "EmptyWaterGlass";
       this.stage.vars.waterglassvolume = 0;
       this.goto(-35, 86);
@@ -192,7 +195,7 @@ export default class Waterglass2 extends Sprite {
         this.sprites["Customer"].x,
         this.sprites["Customer"].y
       );
-      this.warp(this.goToLayer)(5);
+      // //this._layerOrder = 3;
       this.costume = "EmptyWaterGlass";
       this.stage.vars.waterglassvolume = 0;
       this.goto(-35, 86);
@@ -210,7 +213,7 @@ export default class Waterglass2 extends Sprite {
         this.sprites["Customer"].x,
         this.sprites["Customer"].y
       );
-      this.warp(this.goToLayer)(5);
+      // //this._layerOrder = 3;
       this.costume = "EmptyWaterGlass";
       this.stage.vars.waterglassvolume = 0;
       this.goto(-35, 86);
@@ -219,8 +222,4 @@ export default class Waterglass2 extends Sprite {
     }
   }
 
-  *goToLayer(layerNumber) {
-    this.moveBehind();
-    this.moveAhead(this.toNumber(layerNumber) - 1);
-  }
 }

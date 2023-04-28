@@ -79,19 +79,15 @@ export default class Barista extends Sprite {
   }
 
   *whenIReceiveStartgame() {
-    yield* this.goToLayer(2);
+    
     this.stage.vars.baristalocation = 175;
     this.direction = 90;
     this.goto(175, -4);
     this.visible = true;
     while (true) {
-      yield* this.goToLayer(2);
+      
       yield;
     }
   }
 
-  *goToLayer(layerNumber) {
-    this.moveBehind();
-    this.moveAhead(this.toNumber(layerNumber) - 1);
-  }
 }

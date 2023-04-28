@@ -35,13 +35,9 @@ export default class Blankspeechbubble extends Sprite {
 
   *whenGreenFlagClicked() {
     this.visible = false;
-    yield* this.goToLayer(7);
+    
   }
 
-  *goToLayer(layerNumber) {
-    this.moveBehind();
-    this.moveAhead(this.toNumber(layerNumber) - 1);
-  }
 
   *whenIReceiveNewcustomer() {
     this.visible = false;
@@ -58,7 +54,7 @@ export default class Blankspeechbubble extends Sprite {
           this.toNumber(this.stage.vars.customerlocation) === 90)
       ) {
         this.visible = true;
-        yield* this.goToLayer(7);
+        
       } else {
         this.visible = false;
       }

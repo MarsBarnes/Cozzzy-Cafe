@@ -38,7 +38,7 @@ export default class Baristaspeech extends Sprite {
   }
 
   *whenIReceiveStartgame() {
-    yield* this.goToLayer(2);
+    
     this.goto(40, 40);
     this.costume = "Welcome";
     this.visible = true;
@@ -55,8 +55,4 @@ export default class Baristaspeech extends Sprite {
     this.visible = false;
   }
 
-  *goToLayer(layerNumber) {
-    this.moveBehind();
-    this.moveAhead(this.toNumber(layerNumber) - 1);
-  }
 }

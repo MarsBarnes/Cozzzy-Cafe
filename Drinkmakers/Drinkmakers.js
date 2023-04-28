@@ -34,7 +34,7 @@ export default class Drinkmakers extends Sprite {
 
   *whenGreenFlagClicked() {
     this.visible = false;
-    yield* this.goToLayer(7);
+    
   }
 
   *whenIReceiveStartgame() {
@@ -45,14 +45,10 @@ export default class Drinkmakers extends Sprite {
       }
       if (this.stage.costume.name === "Kitchen") {
         this.visible = true;
-        yield* this.goToLayer(7);
+        
       }
       yield;
     }
   }
 
-  *goToLayer(layerNumber) {
-    this.moveBehind();
-    this.moveAhead(this.toNumber(layerNumber) - 1);
-  }
 }

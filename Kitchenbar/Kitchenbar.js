@@ -34,7 +34,7 @@ export default class Kitchenbar extends Sprite {
 
   *whenGreenFlagClicked() {
     this.visible = false;
-    yield* this.goToLayer(3);
+    
   }
 
   *whenIReceiveStartgame() {
@@ -46,14 +46,10 @@ export default class Kitchenbar extends Sprite {
       }
       if (this.stage.costume.name === "Kitchen") {
         this.visible = true;
-        yield* this.goToLayer(3);
+        
       }
       yield;
     }
   }
 
-  *goToLayer(layerNumber) {
-    this.moveBehind();
-    this.moveAhead(this.toNumber(layerNumber) - 1);
-  }
 }

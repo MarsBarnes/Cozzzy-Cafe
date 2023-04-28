@@ -56,7 +56,7 @@ export default class Coffeemug2 extends Sprite {
   *whenGreenFlagClicked() {
     this.costume = "EmptyMug";
     this.visible = false;
-    yield* this.goToLayer(1);
+    
   }
 
   *whenIReceiveStartgame() {
@@ -67,13 +67,13 @@ export default class Coffeemug2 extends Sprite {
     this.visible = false;
     while (true) {
       if (this.toNumber(this.vars.ontray) === 0) {
-        yield* this.goToLayer(1);
+        //this._layerOrder = 1;
       }
       if (this.toNumber(this.vars.ontray) === 1) {
-        yield* this.goToLayer(6);
+        //this._layerOrder = 50;
       }
       if (this.toNumber(this.vars.ontray) === 2) {
-        yield* this.goToLayer(5);
+        //this._layerOrder = 50;
       }
       if (
         this.stage.costume.name === "Kitchen" &&
@@ -127,7 +127,7 @@ export default class Coffeemug2 extends Sprite {
         this.stage.vars.mugontray = 0;
         this.y -= 30;
         this.stage.vars.mugx = this.x;
-        yield* this.goToLayer(6);
+        
         this.visible = true;
         if (
           this.toNumber(this.stage.vars.randomdrinknumber) === 1 &&
@@ -171,7 +171,7 @@ export default class Coffeemug2 extends Sprite {
         this.sprites["Customer"].x,
         this.sprites["Customer"].y
       );
-      this.warp(this.goToLayer)(5);
+      // used to go to layer 5 here
       this.costume = "EmptyMug";
       this.stage.vars.coffeemugvolume = 0;
       this.goto(-48, 162);
@@ -189,7 +189,7 @@ export default class Coffeemug2 extends Sprite {
         this.sprites["Customer"].x,
         this.sprites["Customer"].y
       );
-      this.warp(this.goToLayer)(5);
+      // used to go to layer 5 here
       this.costume = "EmptyMug";
       this.stage.vars.coffeemugvolume = 0;
       this.goto(-48, 162);
@@ -207,7 +207,7 @@ export default class Coffeemug2 extends Sprite {
         this.sprites["Customer"].x,
         this.sprites["Customer"].y
       );
-      this.warp(this.goToLayer)(5);
+      // used to go to layer 5 here
       this.costume = "EmptyMug";
       this.stage.vars.coffeemugvolume = 0;
       this.goto(-48, 162);
@@ -216,8 +216,4 @@ export default class Coffeemug2 extends Sprite {
     }
   }
 
-  *goToLayer(layerNumber) {
-    this.moveBehind();
-    this.moveAhead(this.toNumber(layerNumber) - 1);
-  }
 }

@@ -34,7 +34,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 21
+    layerOrder: 100
   }),
   Bubbleteacup: new Bubbleteacup({
     x: 90,
@@ -43,7 +43,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: true,
-    layerOrder: 8
+    layerOrder: 105
   }),
   Bubblewaterglass: new Bubblewaterglass({
     x: -194,
@@ -52,7 +52,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 19
+    layerOrder: 110
   }),
   Blankspeechbubble: new Blankspeechbubble({
     x: 90,
@@ -61,7 +61,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: true,
-    layerOrder: 7
+    layerOrder: 85
   }),
   Money: new Money({
     x: -124,
@@ -70,7 +70,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 22
+    layerOrder: 80
   }),
   Coffeemug2: new Coffeemug2({
     x: -48,
@@ -79,25 +79,25 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 3
+    layerOrder: 50
   }),
   Teacup2: new Teacup2({
-    x: -50,
-    y: 124,
+    x: -150,
+    y: 162,
     direction: 90,
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 2
+    layerOrder: 55
   }),
   Waterglass2: new Waterglass2({
-    x: -35,
-    y: 86,
+    x: -100,
+    y: 162,
     direction: 90,
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 1
+    layerOrder: 60
   }),
   Tray: new Tray({
     x: 17,
@@ -106,7 +106,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: true,
-    layerOrder: 12
+    layerOrder: 45
   }),
   Drinkmakers: new Drinkmakers({
     x: 116,
@@ -115,7 +115,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 14
+    layerOrder: 95
   }),
   Coffee: new Coffee({
     x: 192,
@@ -124,7 +124,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 18
+    layerOrder: 65
   }),
   Tea: new Tea({
     x: -10,
@@ -133,7 +133,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 20
+    layerOrder: 70
   }),
   Water: new Water({
     x: 100,
@@ -142,7 +142,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 17
+    layerOrder: 75
   }),
   Playbutton: new Playbutton({
     x: 0,
@@ -151,7 +151,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 16
+    layerOrder: 5
   }),
   Placemat1: new Placemat1({
     x: -292,
@@ -160,7 +160,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: true,
-    layerOrder: 11
+    layerOrder: 30
   }),
   Placemat2: new Placemat2({
     x: -139,
@@ -169,7 +169,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: true,
-    layerOrder: 10
+    layerOrder: 35
   }),
   Placemat3: new Placemat3({
     x: 14,
@@ -178,7 +178,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: true,
-    layerOrder: 6
+    layerOrder: 40
   }),
   Bar: new Bar({
     x: 0,
@@ -187,7 +187,7 @@ const sprites = {
     costumeNumber: 1,
     size: 150,
     visible: true,
-    layerOrder: 5
+    layerOrder: 20
   }),
   Kitchenbar: new Kitchenbar({
     x: 0,
@@ -196,7 +196,7 @@ const sprites = {
     costumeNumber: 1,
     size: 150,
     visible: false,
-    layerOrder: 13
+    layerOrder: 25
   }),
   Barista: new Barista({
     x: 17,
@@ -205,7 +205,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: true,
-    layerOrder: 4
+    layerOrder: 10
   }),
   Customer: new Customer({
     x: 90,
@@ -214,7 +214,7 @@ const sprites = {
     costumeNumber: 2,
     size: 100,
     visible: true,
-    layerOrder: 9
+    layerOrder: 90
   }),
   Baristaspeech: new Baristaspeech({
     x: 40,

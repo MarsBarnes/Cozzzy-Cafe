@@ -39,7 +39,7 @@ export default class Placemat2 extends Sprite {
         this.visible = false;
       }
       if (this.stage.costume.name === "Bar") {
-        yield* this.goToLayer(4);
+        
         this.visible = true;
       }
       yield;
@@ -48,11 +48,7 @@ export default class Placemat2 extends Sprite {
 
   *whenGreenFlagClicked() {
     this.visible = false;
-    yield* this.goToLayer(4);
+    
   }
 
-  *goToLayer(layerNumber) {
-    this.moveBehind();
-    this.moveAhead(this.toNumber(layerNumber) - 1);
-  }
 }

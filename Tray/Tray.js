@@ -38,14 +38,10 @@ export default class Tray extends Sprite {
       this.visible = true;
       this.goto(this.toNumber(this.stage.vars.baristalocation), 0);
       if (!(this.toNumber(undefined) === 5)) {
-        yield* this.goToLayer(5);
+        
       }
       yield;
     }
   }
 
-  *goToLayer(layerNumber) {
-    this.moveBehind();
-    this.moveAhead(this.toNumber(layerNumber) - 1);
-  }
 }

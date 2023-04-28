@@ -97,7 +97,7 @@ export default class Coffee extends Sprite {
 
   *whenGreenFlagClicked() {
     this.visible = false;
-    yield* this.goToLayer(6);
+    
   }
 
   *whenKeySpacePressed() {
@@ -174,8 +174,4 @@ export default class Coffee extends Sprite {
     }
   }
 
-  *goToLayer(layerNumber) {
-    this.moveBehind();
-    this.moveAhead(this.toNumber(layerNumber) - 1);
-  }
 }
