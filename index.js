@@ -74,7 +74,7 @@ const sprites = {
   }),
   Coffeemug2: new Coffeemug2({
     x: -48,
-    y: 162,
+    y: 150,
     direction: 90,
     costumeNumber: 1,
     size: 100,
@@ -82,8 +82,8 @@ const sprites = {
     layerOrder: 50
   }),
   Teacup2: new Teacup2({
-    x: -150,
-    y: 162,
+    x: -175,
+    y: 146,
     direction: 90,
     costumeNumber: 1,
     size: 100,
@@ -92,7 +92,7 @@ const sprites = {
   }),
   Waterglass2: new Waterglass2({
     x: -100,
-    y: 162,
+    y: 154,
     direction: 90,
     costumeNumber: 1,
     size: 100,

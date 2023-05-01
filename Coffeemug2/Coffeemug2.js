@@ -63,7 +63,7 @@ export default class Coffeemug2 extends Sprite {
     this.watchers.ontray.visible = false;
     this.vars.ontray = 0;
     this.stage.vars.mugontray = 0;
-    this.goto(-48, 162);
+    this.goto(-48, 150);
     this.visible = false;
     while (true) {
       if (this.toNumber(this.vars.ontray) === 0) {
@@ -120,7 +120,7 @@ export default class Coffeemug2 extends Sprite {
       this.vars.ontray = 0;
       this.stage.vars.mugontray = 0;
       if (this.stage.costume.name === "Kitchen") {
-        this.goto(-48, 162);
+        this.goto(-48, 150);
         return;
       } else {
         this.vars.ontray = 2;
@@ -174,7 +174,7 @@ export default class Coffeemug2 extends Sprite {
       // used to go to layer 5 here
       this.costume = "EmptyMug";
       this.stage.vars.coffeemugvolume = 0;
-      this.goto(-48, 162);
+      this.goto(-48, 150);
       this.vars.ontray = 0;
       this.visible = false;
     }
@@ -192,7 +192,7 @@ export default class Coffeemug2 extends Sprite {
       // used to go to layer 5 here
       this.costume = "EmptyMug";
       this.stage.vars.coffeemugvolume = 0;
-      this.goto(-48, 162);
+      this.goto(-48, 150);
       this.vars.ontray = 0;
       this.visible = false;
     }
@@ -210,7 +210,7 @@ export default class Coffeemug2 extends Sprite {
       // used to go to layer 5 here
       this.costume = "EmptyMug";
       this.stage.vars.coffeemugvolume = 0;
-      this.goto(-48, 162);
+      this.goto(-48, 150);
       this.vars.ontray = 0;
       this.visible = false;
     }
