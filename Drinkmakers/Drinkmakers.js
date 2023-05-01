@@ -38,7 +38,7 @@ export default class Drinkmakers extends Sprite {
   }
 
   *whenIReceiveStartgame() {
-    this.goto(116, -2);
+    this.goto(130, -2);
     while (true) {
       if (this.stage.costume.name === "Bar") {
         this.visible = false;

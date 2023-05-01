@@ -109,7 +109,7 @@ const sprites = {
     layerOrder: 45
   }),
   Drinkmakers: new Drinkmakers({
-    x: 116,
+    x: 130,
     y: -2,
     direction: 90,
     costumeNumber: 1,
@@ -118,7 +118,7 @@ const sprites = {
     layerOrder: 95
   }),
   Coffee: new Coffee({
-    x: 192,
+    x: 180,
     y: 1,
     direction: 90,
     costumeNumber: 1,
@@ -127,7 +127,7 @@ const sprites = {
     layerOrder: 65
   }),
   Tea: new Tea({
-    x: -10,
+    x: 4,
     y: -15,
     direction: 90,
     costumeNumber: 1,
@@ -136,7 +136,7 @@ const sprites = {
     layerOrder: 70
   }),
   Water: new Water({
-    x: 100,
+    x: 111,
     y: 1,
     direction: 90,
     costumeNumber: 1,

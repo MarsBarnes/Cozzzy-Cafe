@@ -81,7 +81,7 @@ export default class Tea extends Sprite {
     this.watchers.ontray.visible = false;
     this.vars.ontray = 0;
     this.costume = "Tea0";
-    this.goto(-10, -15);
+    this.goto(4, -15);
     this.visible = false;
     while (true) {
       if (this.stage.costume.name === "Kitchen") {
@@ -117,7 +117,7 @@ export default class Tea extends Sprite {
     ) {
       this.stage.vars.vesselslot = 0;
       this.vars.ontray = 0;
-      this.goto(-10, -15);
+      this.goto(4, -15);
       return;
     }
     if (

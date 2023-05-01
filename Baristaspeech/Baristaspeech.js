@@ -53,6 +53,16 @@ export default class Baristaspeech extends Sprite {
 
   *whenGreenFlagClicked() {
     this.visible = false;
+      while (true) {
+      if (
+        this.stage.costume.name === "Kitchen" || this.stage.costume.name === "CozzzyCafe"
+      ) {
+        this.visible = false;
+      }
+      yield;
+    }
   }
+
+
 
 }

@@ -124,7 +124,7 @@ export default class Coffee extends Sprite {
     this.watchers.ontray.visible = false;
     this.vars.ontray = 0;
     this.costume = "Coffee0";
-    this.goto(192, 1);
+    this.goto(180, 1);
     this.visible = false;
     while (true) {
       if (this.stage.costume.name === "Kitchen") {
@@ -160,7 +160,7 @@ export default class Coffee extends Sprite {
     ) {
       this.stage.vars.vesselslot = 0;
       this.vars.ontray = 0;
-      this.goto(192, 1);
+      this.goto(180, 1);
       return;
     }
     if (

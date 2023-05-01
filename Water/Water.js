@@ -97,7 +97,7 @@ export default class Water extends Sprite {
     this.watchers.ontray.visible = false;
     this.vars.ontray = 0;
     this.costume = "Water0";
-    this.goto(100, 1);
+    this.goto(111, 1);
     this.visible = false;
     while (true) {
       if (this.stage.costume.name === "Kitchen") {
@@ -133,7 +133,7 @@ export default class Water extends Sprite {
     ) {
       this.stage.vars.vesselslot = 0;
       this.vars.ontray = 0;
-      this.goto(100, 1);
+      this.goto(111, 1);
       return;
     }
     if (
