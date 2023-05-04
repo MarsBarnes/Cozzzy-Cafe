@@ -33,12 +33,13 @@ export default class Teacup2 extends Sprite {
         { name: "StartGame" },
         this.whenIReceiveStartgame
       ),
-      new Trigger(Trigger.CLICKED, this.whenthisspriteclicked),
+      // new Trigger(Trigger.CLICKED, this.whenthisspriteclicked),
       new Trigger(
         Trigger.BROADCAST,
         { name: "PourComplete" },
         this.whenIReceivePourcomplete
-      )
+      ),
+      new Trigger(Trigger.KEY_PRESSED, { key: "s" }, this.whenKeySPressed)
     ];
 
     this.vars.ontray = 0;
@@ -66,15 +67,6 @@ export default class Teacup2 extends Sprite {
     this.goto(-175, 146);
     this.visible = false;
     while (true) {
-      if (this.toNumber(this.vars.ontray) === 0) {
-        //this._layerOrder = 2;
-      }
-      if (this.toNumber(this.vars.ontray) === 1) {
-        //this._layerOrder = 55;
-      }
-      if (this.toNumber(this.vars.ontray) === 2) {
-        //this._layerOrder = 55;
-      }
       if (
         this.stage.costume.name === "Kitchen" &&
         (this.toNumber(this.vars.ontray) === 0 ||
@@ -111,24 +103,89 @@ export default class Teacup2 extends Sprite {
     }
   }
 
-  *whenthisspriteclicked() {
-    if (
-      this.toNumber(this.stage.vars.cupslot) === 1 &&
-      this.toNumber(this.vars.ontray) === 1
-    ) {
-      this.stage.vars.cupslot = 0;
-      this.vars.ontray = 0;
-      this.stage.vars.teacupontray = 0;
-      if (this.stage.costume.name === "Kitchen") {
+  // *whenthisspriteclicked() {
+  //   if (
+  //     this.toNumber(this.stage.vars.cupslot) === 1 &&
+  //     this.toNumber(this.vars.ontray) === 1
+  //   ) {
+  //     this.stage.vars.cupslot = 0;
+  //     this.vars.ontray = 0;
+  //     this.stage.vars.teacupontray = 0;
+  //     if (this.stage.costume.name === "Kitchen") {
+  //       this.goto(-175, 146);
+  //       return;
+  //     } else {
+  //       this.vars.ontray = 2;
+  //       this.stage.vars.teacupontray = 0;
+  //       this.y -= 30;
+  //       this.stage.vars.teacupx = this.x;
+        
+  //       this.visible = true;
+  //       if (
+  //         this.toNumber(this.stage.vars.randomdrinknumber) === 2 &&
+  //         this.toNumber(this.vars.ontray) === 2 &&
+  //         this.costume.name === "FullTeaCup"
+  //       ) {
+  //         yield* this.score(this.stage.vars.teacupx);
+  //       }
+  //       return;
+  //     }
+  //   }
+  //   if (
+  //     this.toNumber(this.stage.vars.cupslot) === 1 &&
+  //     this.toNumber(this.vars.ontray) === 0
+  //   ) {
+  //     return;
+  //   } else {
+  //     this.stage.vars.teacupontray = 1;
+  //     this.vars.ontray = 1;
+  //     this.stage.vars.cupslot = 1;
+  //   }
+  // }
+
+  *whenKeySPressed() {
+    // console.log( "baristaLocation" + this.stage.vars.baristalocation)
+    // console.log("compare returns", this.compare(this.stage.vars.baristalocation, 195))
+
+    if(this.stage.costume.name === "Kitchen" &&
+        this.stage.vars.baristalocation > -230 &&
+        this.stage.vars.baristalocation < -140 
+  ) 
+    
+    { 
+      if(this.toNumber(this.stage.vars.teacupontray) === 1){
         this.goto(-175, 146);
-        return;
-      } else {
-        this.vars.ontray = 2;
+        this.stage.vars.cupslot = 0;
+        this.vars.ontray = 0;
         this.stage.vars.teacupontray = 0;
+        return;
+      }
+      if(this.toNumber(this.stage.vars.teacupontray) === 0){
+        if(this.toNumber(this.stage.vars.cupslot) === 1){
+          return;
+        }
+        if(this.toNumber(this.stage.vars.cupslot) === 0){
+          this.stage.vars.cupslot = 1;
+          this.vars.ontray = 1;
+          this.stage.vars.teacupontray = 1;
+          return;          
+        }
+      }
+    }
+    if(this.stage.costume.name === "Bar"){
+      if(this.toNumber(this.stage.vars.cupslot) === 0 && this.toNumber(this.vars.ontray) === 2){
+        this.stage.vars.teacupx = this.x;
+        this.stage.vars.cupslot = 1;
+        this.vars.ontray = 1;
+        this.stage.vars.teacupontray = 1;
+        return;
+      }
+      if(this.toNumber(this.stage.vars.cupslot) === 1){
         this.y -= 30;
         this.stage.vars.teacupx = this.x;
-        
-        this.visible = true;
+        this.stage.vars.cupslot = 0;
+        this.vars.ontray = 2;
+        this.stage.vars.teacupontray = 0;
         if (
           this.toNumber(this.stage.vars.randomdrinknumber) === 2 &&
           this.toNumber(this.vars.ontray) === 2 &&
@@ -139,17 +196,11 @@ export default class Teacup2 extends Sprite {
         return;
       }
     }
-    if (
-      this.toNumber(this.stage.vars.cupslot) === 1 &&
-      this.toNumber(this.vars.ontray) === 0
-    ) {
+    else{
       return;
-    } else {
-      this.stage.vars.teacupontray = 1;
-      this.vars.ontray = 1;
-      this.stage.vars.cupslot = 1;
     }
   }
+
 
   *whenIReceivePourcomplete() {
     if (this.toNumber(this.vars.ontray) === 1) {
