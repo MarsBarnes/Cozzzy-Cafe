@@ -96,3 +96,23 @@ export function *sFunction2(self, objectHomeX, objectHomeY, fullCostume) {
       }
 }
 
+// -------------------------------------------------------------------------------------------------------------------------------
+
+export function *sFunction3(self, objectLocation) {
+    if(self.stage.costume.name === "Bar"){
+    console.log("sFunction3:    " + "baristaLocation: " + self.stage.vars.baristalocation + "objectLocation: " + objectLocation )
+    console.log("barista location - objectLocation: "+ (self.stage.vars.baristalocation - objectLocation))}
+    if(self.stage.costume.name === "Bar" &&
+    (self.stage.vars.baristalocation - objectLocation) < 100 &&
+    (self.stage.vars.baristalocation - objectLocation) > -100 &&
+    self.y < 100
+    ){
+        self.stage.vars.money += 5;
+        // self.visible = false;
+        self.goto(100,100);
+        console.log("sFunction3:     x: " + self.x + "y: " + self.y);
+        return;
+    }
+
+}
+

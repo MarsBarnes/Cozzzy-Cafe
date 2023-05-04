@@ -64,11 +64,11 @@ const sprites = {
     layerOrder: 85
   }),
   Money: new Money({
-    x: -124,
-    y: 37,
+    x: 100,
+    y: 100,
     direction: 90,
     costumeNumber: 1,
-    size: 100,
+    size: 150,
     visible: false,
     layerOrder: 80
   }),
@@ -228,6 +228,6 @@ const sprites = {
 };
 
 const project = new Project(stage, sprites, {
-  frameRate: 30 // Set to 60 to make your project run faster
+  frameRate: 60 // Set to 60 to make your project run faster
 });
 export default project;

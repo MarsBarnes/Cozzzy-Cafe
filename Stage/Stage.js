@@ -151,14 +151,15 @@ export default class Stage extends StageBase {
   }
 
   *hideallglobalvariables() {
-    this.watchers.baristalocation.visible = false;
+    //edited this to see certain variables
+    this.watchers.baristalocation.visible = true;
     this.watchers.customerlocation.visible = false;
     this.watchers.cupslot.visible = false;
     this.watchers.vesselslot.visible = false;
     this.watchers.mugontray.visible = false;
     this.watchers.waterglassontray.visible = false;
     this.watchers.teacupontray.visible = false;
-    this.watchers.money.visible = false;
+    this.watchers.money.visible = true;
     this.watchers.randomdrinknumber.visible = false;
     this.watchers.seatnumber.visible = false;
     this.watchers.traylocation.visible = false;
