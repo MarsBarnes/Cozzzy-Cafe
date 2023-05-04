@@ -9,6 +9,10 @@ import {
   Sound
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
+import{
+  sFunction2
+} from "../globalFunctionsIWrote.js";
+
 export default class Tea extends Sprite {
   constructor(...args) {
     super(...args);
@@ -52,12 +56,13 @@ export default class Tea extends Sprite {
         { name: "StartGame" },
         this.whenIReceiveStartgame
       ),
-      new Trigger(Trigger.CLICKED, this.whenthisspriteclicked),
+      // new Trigger(Trigger.CLICKED, this.whenthisspriteclicked),
       new Trigger(
         Trigger.KEY_PRESSED,
         { key: "space" },
         this.whenKeySpacePressed
-      )
+      ),
+      new Trigger(Trigger.KEY_PRESSED, { key: "s" }, this.whenKeySPressed)
     ];
 
     this.vars.ontray = 0;
@@ -109,27 +114,32 @@ export default class Tea extends Sprite {
     }
   }
 
-  *whenthisspriteclicked() {
-    if (
-      this.stage.costume.name === "Kitchen" &&
-      this.toNumber(this.stage.vars.vesselslot) === 1 &&
-        this.toNumber(this.vars.ontray) === 1
-    ) {
-      this.stage.vars.vesselslot = 0;
-      this.vars.ontray = 0;
-      this.goto(4, -15);
-      return;
-    }
-    if (
-      this.toNumber(this.stage.vars.vesselslot) === 1 &&
-      this.toNumber(this.vars.ontray) === 0
-    ) {
-      return;
-    } else {
-      this.vars.ontray = 1;
-      this.stage.vars.vesselslot = 1;
-    }
+  // *whenthisspriteclicked() {
+  //   if (
+  //     this.stage.costume.name === "Kitchen" &&
+  //     this.toNumber(this.stage.vars.vesselslot) === 1 &&
+  //       this.toNumber(this.vars.ontray) === 1
+  //   ) {
+  //     this.stage.vars.vesselslot = 0;
+  //     this.vars.ontray = 0;
+  //     this.goto(4, -15);
+  //     return;
+  //   }
+  //   if (
+  //     this.toNumber(this.stage.vars.vesselslot) === 1 &&
+  //     this.toNumber(this.vars.ontray) === 0
+  //   ) {
+  //     return;
+  //   } else {
+  //     this.vars.ontray = 1;
+  //     this.stage.vars.vesselslot = 1;
+  //   }
+  // }
+
+  *whenKeySPressed(){
+    yield* sFunction2(this, 4, -15, "Tea0" );
   }
+
 
   *whenKeySpacePressed() {
     if (

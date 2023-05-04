@@ -62,3 +62,37 @@ else{
 }
 }
 
+// -------------------------------------------------------------------------------------------------------------------------------
+
+export function *sFunction2(self, objectHomeX, objectHomeY, fullCostume) {
+    if (
+        self.stage.costume.name === "Kitchen" &&
+        self.toNumber(self.stage.vars.vesselslot) === 1 &&
+        self.toNumber(self.vars.ontray) === 1 &&
+        self.stage.vars.baristalocation - objectHomeX < 30 &&
+        self.stage.vars.baristalocation - objectHomeX > -30
+      ) {
+        self.stage.vars.vesselslot = 0;
+        self.vars.ontray = 0;
+        self.goto(objectHomeX, objectHomeY);
+        self.costume = fullCostume;
+        return;
+      }
+    if (
+        self.stage.costume.name === "Kitchen" &&
+        self.toNumber(self.stage.vars.vesselslot) === 1 &&
+        self.toNumber(self.vars.ontray) === 0 &&
+        self.stage.vars.baristalocation - objectHomeX < 30 &&
+        self.stage.vars.baristalocation - objectHomeX > -30
+      ) {
+        return;
+      } 
+    if(self.stage.costume.name === "Kitchen" &&
+        self.stage.vars.baristalocation - objectHomeX < 30 &&
+        self.stage.vars.baristalocation - objectHomeX > -30
+    ) {
+        self.vars.ontray = 1;
+        self.stage.vars.vesselslot = 1;
+      }
+}
+

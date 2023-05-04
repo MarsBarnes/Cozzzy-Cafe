@@ -9,6 +9,10 @@ import {
   Sound
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
+import{
+  sFunction2
+} from "../globalFunctionsIWrote.js";
+
 export default class Water extends Sprite {
   constructor(...args) {
     super(...args);
@@ -53,7 +57,9 @@ export default class Water extends Sprite {
         { name: "StartGame" },
         this.whenIReceiveStartgame
       ),
-      new Trigger(Trigger.CLICKED, this.whenthisspriteclicked)
+      // new Trigger(Trigger.CLICKED, this.whenthisspriteclicked),
+      new Trigger(Trigger.KEY_PRESSED, { key: "s" }, this.whenKeySPressed)
+
     ];
 
     this.vars.ontray = 0;
@@ -124,27 +130,30 @@ export default class Water extends Sprite {
       yield;
     }
   }
-
-  *whenthisspriteclicked() {
-    if (
-      this.stage.costume.name === "Kitchen" &&
-      this.toNumber(this.stage.vars.vesselslot) === 1 &&
-        this.toNumber(this.vars.ontray) === 1
-    ) {
-      this.stage.vars.vesselslot = 0;
-      this.vars.ontray = 0;
-      this.goto(111, 1);
-      return;
-    }
-    if (
-      this.toNumber(this.stage.vars.vesselslot) === 1 &&
-      this.toNumber(this.vars.ontray) === 0
-    ) {
-      return;
-    } else {
-      this.vars.ontray = 1;
-      this.stage.vars.vesselslot = 1;
-    }
+  *whenKeySPressed(){
+    yield* sFunction2(this, 111, 1, "Water0" );
   }
+
+  // *whenthisspriteclicked() {
+  //   if (
+  //     this.stage.costume.name === "Kitchen" &&
+  //     this.toNumber(this.stage.vars.vesselslot) === 1 &&
+  //       this.toNumber(this.vars.ontray) === 1
+  //   ) {
+  //     this.stage.vars.vesselslot = 0;
+  //     this.vars.ontray = 0;
+  //     this.goto(111, 1);
+  //     return;
+  //   }
+  //   if (
+  //     this.toNumber(this.stage.vars.vesselslot) === 1 &&
+  //     this.toNumber(this.vars.ontray) === 0
+  //   ) {
+  //     return;
+  //   } else {
+  //     this.vars.ontray = 1;
+  //     this.stage.vars.vesselslot = 1;
+  //   }
+  // }
 
 }
