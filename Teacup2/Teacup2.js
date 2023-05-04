@@ -57,13 +57,14 @@ export default class Teacup2 extends Sprite {
   *whenGreenFlagClicked() {
     this.costume = "EmptyTeaCup";
     this.visible = false;
-    
+
   }
 
   *whenIReceiveStartgame() {
     this.watchers.ontray.visible = false;
     this.vars.ontray = 0;
     this.stage.vars.teacupontray = 0;
+    this.stage.vars.teacupx = -175;
     this.goto(-175, 146);
     this.visible = false;
     while (true) {
@@ -99,61 +100,23 @@ export default class Teacup2 extends Sprite {
       ) {
         this.goto(this.toNumber(this.stage.vars.baristalocation) + -29, -6);
       }
+      this.stage.vars.teacupx = this.x;
       yield;
     }
   }
 
-  // *whenthisspriteclicked() {
-  //   if (
-  //     this.toNumber(this.stage.vars.cupslot) === 1 &&
-  //     this.toNumber(this.vars.ontray) === 1
-  //   ) {
-  //     this.stage.vars.cupslot = 0;
-  //     this.vars.ontray = 0;
-  //     this.stage.vars.teacupontray = 0;
-  //     if (this.stage.costume.name === "Kitchen") {
-  //       this.goto(-175, 146);
-  //       return;
-  //     } else {
-  //       this.vars.ontray = 2;
-  //       this.stage.vars.teacupontray = 0;
-  //       this.y -= 30;
-  //       this.stage.vars.teacupx = this.x;
-        
-  //       this.visible = true;
-  //       if (
-  //         this.toNumber(this.stage.vars.randomdrinknumber) === 2 &&
-  //         this.toNumber(this.vars.ontray) === 2 &&
-  //         this.costume.name === "FullTeaCup"
-  //       ) {
-  //         yield* this.score(this.stage.vars.teacupx);
-  //       }
-  //       return;
-  //     }
-  //   }
-  //   if (
-  //     this.toNumber(this.stage.vars.cupslot) === 1 &&
-  //     this.toNumber(this.vars.ontray) === 0
-  //   ) {
-  //     return;
-  //   } else {
-  //     this.stage.vars.teacupontray = 1;
-  //     this.vars.ontray = 1;
-  //     this.stage.vars.cupslot = 1;
-  //   }
-  // }
-
   *whenKeySPressed() {
-    // console.log( "baristaLocation" + this.stage.vars.baristalocation)
-    // console.log("compare returns", this.compare(this.stage.vars.baristalocation, 195))
-
+    // console.log("barista location:       " + this.stage.vars.baristalocation)
+    // console.log("barista location - 175:       " + ((this.toNumber(this.stage.vars.baristalocation)) + 175))
     if(this.stage.costume.name === "Kitchen" &&
-        this.stage.vars.baristalocation > -230 &&
-        this.stage.vars.baristalocation < -140 
-  ) 
-    
-    { 
-      if(this.toNumber(this.stage.vars.teacupontray) === 1){
+       this.stage.vars.baristalocation - this.stage.vars.teacupx < 30 &&
+       this.stage.vars.baristalocation - this.stage.vars.teacupx > -30
+        )
+    {
+      if(this.toNumber(this.stage.vars.teacupontray) === 1 && 
+         this.stage.vars.baristalocation + 175 < 35 &&
+         this.stage.vars.baristalocation + 175 > -35
+      ){
         this.goto(-175, 146);
         this.stage.vars.cupslot = 0;
         this.vars.ontray = 0;
@@ -168,13 +131,14 @@ export default class Teacup2 extends Sprite {
           this.stage.vars.cupslot = 1;
           this.vars.ontray = 1;
           this.stage.vars.teacupontray = 1;
-          return;          
+          return;
         }
       }
     }
-    if(this.stage.costume.name === "Bar"){
+    if(this.stage.costume.name === "Bar" &&
+    this.stage.vars.baristalocation - this.stage.vars.teacupx < 30 &&
+    this.stage.vars.baristalocation - this.stage.vars.teacupx > -30){
       if(this.toNumber(this.stage.vars.cupslot) === 0 && this.toNumber(this.vars.ontray) === 2){
-        this.stage.vars.teacupx = this.x;
         this.stage.vars.cupslot = 1;
         this.vars.ontray = 1;
         this.stage.vars.teacupontray = 1;
@@ -182,7 +146,6 @@ export default class Teacup2 extends Sprite {
       }
       if(this.toNumber(this.stage.vars.cupslot) === 1){
         this.y -= 30;
-        this.stage.vars.teacupx = this.x;
         this.stage.vars.cupslot = 0;
         this.vars.ontray = 2;
         this.stage.vars.teacupontray = 0;
