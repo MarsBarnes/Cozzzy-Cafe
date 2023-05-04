@@ -108,7 +108,7 @@ export default class Coffeemug2 extends Sprite {
   }
 
   *whenKeySPressed(){
-    yield* sFunction(this, "coffeemugx",  "mugontray", -48, 150, "FullMug");
+    yield* sFunction(this, "coffeemugx",  "mugontray", -48, 150, "FullMug", 1);
   }
   
   *whenIReceivePourcomplete() {

@@ -114,7 +114,7 @@ export default class Waterglass2 extends Sprite {
   }
 
   *whenKeySPressed(){
-    yield* sFunction(this, "waterglassx",  "waterglassontray", -110, 154, "FullWaterGlass" );
+    yield* sFunction(this, "waterglassx",  "waterglassontray", -110, 154, "FullWaterGlass", 3 );
   }
 
   *whenIReceivePourcomplete() {

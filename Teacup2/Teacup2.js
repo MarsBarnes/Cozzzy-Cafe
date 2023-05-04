@@ -109,7 +109,7 @@ export default class Teacup2 extends Sprite {
   }
 
   *whenKeySPressed(){
-    yield* sFunction(this, "teacupx",  "teacupontray", -175, 146, "FullTeaCup");
+    yield* sFunction(this, "teacupx",  "teacupontray", -175, 146, "FullTeaCup", 2);
   }
 
   *whenIReceivePourcomplete() {

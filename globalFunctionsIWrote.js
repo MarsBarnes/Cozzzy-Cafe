@@ -1,4 +1,4 @@
-export function *sFunction(self, objectLocation, objectOnTray, objectHomeX, objectHomeY, fullCostume) {
+export function *sFunction(self, objectLocation, objectOnTray, objectHomeX, objectHomeY, fullCostume, drinkNumber) {
 // console.log("barista location:       " + self.stage.vars.baristalocation)
 // console.log("barista location - 175:       " + ((self.toNumber(self.stage.vars.baristalocation)) + 175))
 if(self.stage.costume.name === "Kitchen" &&
@@ -48,7 +48,7 @@ self.stage.vars.baristalocation - self.stage.vars[objectLocation] > -30){
     self.vars.ontray = 2;
     self.stage.vars[objectOnTray] = 0;
     if (
-        self.toNumber(self.stage.vars.randomdrinknumber) === 2 &&
+        self.toNumber(self.stage.vars.randomdrinknumber) === drinkNumber &&
         self.toNumber(self.vars.ontray) === 2 &&
         self.costume.name === fullCostume
     ) {
