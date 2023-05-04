@@ -37,7 +37,6 @@ export default class Teacup2 extends Sprite {
         { name: "StartGame" },
         this.whenIReceiveStartgame
       ),
-      // new Trigger(Trigger.CLICKED, this.whenthisspriteclicked),
       new Trigger(
         Trigger.BROADCAST,
         { name: "PourComplete" },
@@ -109,134 +108,9 @@ export default class Teacup2 extends Sprite {
     }
   }
 
-  // *whenKeySPressed() {
-  //   // console.log("barista location:       " + this.stage.vars.baristalocation)
-  //   // console.log("barista location - 175:       " + ((this.toNumber(this.stage.vars.baristalocation)) + 175))
-  //   if(this.stage.costume.name === "Kitchen" &&
-  //      this.stage.vars.baristalocation - this.stage.vars.teacupx < 30 &&
-  //      this.stage.vars.baristalocation - this.stage.vars.teacupx > -30
-  //       )
-  //   {
-  //     if(this.toNumber(this.stage.vars.teacupontray) === 1 && 
-  //        this.stage.vars.baristalocation + 175 < 35 &&
-  //        this.stage.vars.baristalocation + 175 > -35
-  //     ){
-  //       this.goto(-175, 146);
-  //       this.stage.vars.cupslot = 0;
-  //       this.vars.ontray = 0;
-  //       this.stage.vars.teacupontray = 0;
-  //       return;
-  //     }
-  //     if(this.toNumber(this.stage.vars.teacupontray) === 0){
-  //       if(this.toNumber(this.stage.vars.cupslot) === 1){
-  //         return;
-  //       }
-  //       if(this.toNumber(this.stage.vars.cupslot) === 0){
-  //         this.stage.vars.cupslot = 1;
-  //         this.vars.ontray = 1;
-  //         this.stage.vars.teacupontray = 1;
-  //         return;
-  //       }
-  //     }
-  //   }
-  //   if(this.stage.costume.name === "Bar" &&
-  //   this.stage.vars.baristalocation - this.stage.vars.teacupx < 30 &&
-  //   this.stage.vars.baristalocation - this.stage.vars.teacupx > -30){
-  //     if(this.toNumber(this.stage.vars.cupslot) === 0 && this.toNumber(this.vars.ontray) === 2){
-  //       this.stage.vars.cupslot = 1;
-  //       this.vars.ontray = 1;
-  //       this.stage.vars.teacupontray = 1;
-  //       return;
-  //     }
-  //     if(this.toNumber(this.stage.vars.cupslot) === 1){
-  //       this.y -= 30;
-  //       this.stage.vars.cupslot = 0;
-  //       this.vars.ontray = 2;
-  //       this.stage.vars.teacupontray = 0;
-  //       if (
-  //         this.toNumber(this.stage.vars.randomdrinknumber) === 2 &&
-  //         this.toNumber(this.vars.ontray) === 2 &&
-  //         this.costume.name === "FullTeaCup"
-  //       ) {
-  //         yield* this.score(this.stage.vars.teacupx);
-  //       }
-  //       return;
-  //     }
-  //   }
-  //   else{
-  //     return;
-  //   }
-  // }
-  
-// TRYING TO MAKE THIS INTO A REUSABLE FUNCTION
   *whenKeySPressed(){
-    yield* sFunction(this, "teacupx",  "teacupontray", -175, 146);
+    yield* sFunction(this, "teacupx",  "teacupontray", -175, 146, "FullTeaCup");
   }
-  // *sFunction(objectLocation, objectOnTray, objectHomeX, objectHomeY) {
-  //   // console.log("barista location:       " + this.stage.vars.baristalocation)
-  //   // console.log("barista location - 175:       " + ((this.toNumber(this.stage.vars.baristalocation)) + 175))
-  //   if(this.stage.costume.name === "Kitchen" &&
-  //      this.stage.vars.baristalocation - this.stage.vars[objectLocation] < 30 &&
-  //      this.stage.vars.baristalocation - this.stage.vars[objectLocation] > -30
-  //       )
-  //   {
-  //         console.log("barista location:       " + this.stage.vars.baristalocation)
-  //         console.log("objectHomeX:       " + objectHomeX)
-  //         console.log("baristalocation - objectHomeX:       " +  (this.toNumber(this.stage.vars.baristalocation) - this.toNumber(objectHomeX)))
-  //         console.log("objectOnTray" + this.stage.vars[objectOnTray])
-
-  //     if(this.toNumber(this.stage.vars[objectOnTray]) === 1 && 
-  //        (this.toNumber(this.stage.vars.baristalocation) - this.toNumber(objectHomeX) < 35) &&
-  //        (this.toNumber(this.stage.vars.baristalocation) - this.toNumber(objectHomeX) > -35)
-  //     ){
-  //       console.log("got here2")
-  //       this.goto(objectHomeX, objectHomeY);
-  //       this.stage.vars.cupslot = 0;
-  //       this.vars.ontray = 0;
-  //       this.stage.vars[objectOnTray] = 0;
-  //       return;
-  //     }
-  //     if(this.toNumber(this.stage.vars[objectOnTray]) === 0){
-  //       if(this.toNumber(this.stage.vars.cupslot) === 1){
-  //         return;
-  //       }
-  //       if(this.toNumber(this.stage.vars.cupslot) === 0){
-  //         this.stage.vars.cupslot = 1;
-  //         this.vars.ontray = 1;
-  //         this.stage.vars[objectOnTray] = 1;
-  //         return;
-  //       }
-  //     }
-  //   }
-  //   if(this.stage.costume.name === "Bar" &&
-  //   this.stage.vars.baristalocation - this.stage.vars[objectLocation] < 30 &&
-  //   this.stage.vars.baristalocation - this.stage.vars[objectLocation] > -30){
-  //     if(this.toNumber(this.stage.vars.cupslot) === 0 && this.toNumber(this.vars.ontray) === 2){
-  //       this.stage.vars.cupslot = 1;
-  //       this.vars.ontray = 1;
-  //       this.stage.vars[objectOnTray] = 1;
-  //       return;
-  //     }
-  //     if(this.toNumber(this.stage.vars.cupslot) === 1){
-  //       this.y -= 30;
-  //       this.stage.vars.cupslot = 0;
-  //       this.vars.ontray = 2;
-  //       this.stage.vars[objectOnTray] = 0;
-  //       if (
-  //         this.toNumber(this.stage.vars.randomdrinknumber) === 2 &&
-  //         this.toNumber(this.vars.ontray) === 2 &&
-  //         this.costume.name === "FullTeaCup"
-  //       ) {
-  //         yield* this.score(this.stage.vars.teacupx);
-  //       }
-  //       return;
-  //     }
-  //   }
-  //   else{
-  //     return;
-  //   }
-  // }
-
 
   *whenIReceivePourcomplete() {
     if (this.toNumber(this.vars.ontray) === 1) {
@@ -258,7 +132,6 @@ export default class Teacup2 extends Sprite {
         this.sprites["Customer"].x,
         this.sprites["Customer"].y
       );
-      // used to go to layer 5 here
       this.costume = "EmptyTeaCup";
       this.stage.vars.teacupvolume = 0;
       this.goto(-175, 146);
@@ -276,7 +149,6 @@ export default class Teacup2 extends Sprite {
         this.sprites["Customer"].x,
         this.sprites["Customer"].y
       );
-      // used to go to layer 5 here
       this.costume = "EmptyTeaCup";
       this.stage.vars.teacupvolume = 0;
       this.goto(-175, 146);
@@ -294,7 +166,6 @@ export default class Teacup2 extends Sprite {
         this.sprites["Customer"].x,
         this.sprites["Customer"].y
       );
-      // used to go to layer 5 here
       this.costume = "EmptyTeaCup";
       this.stage.vars.teacupvolume = 0;
       this.goto(-175, 146);

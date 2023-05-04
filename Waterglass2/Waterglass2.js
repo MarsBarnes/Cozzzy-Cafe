@@ -11,6 +11,10 @@ import {
   Sound
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
+import{
+  sFunction
+} from "../globalFunctionsIWrote.js";
+
 export default class Waterglass2 extends Sprite {
   constructor(...args) {
     super(...args);
@@ -32,7 +36,6 @@ export default class Waterglass2 extends Sprite {
 
     this.triggers = [
       new Trigger(Trigger.GREEN_FLAG, this.whenGreenFlagClicked),
-      new Trigger(Trigger.CLICKED, this.whenthisspriteclicked),
       new Trigger(
         Trigger.BROADCAST,
         { name: "StartGame" },
@@ -42,7 +45,8 @@ export default class Waterglass2 extends Sprite {
         Trigger.BROADCAST,
         { name: "PourComplete" },
         this.whenIReceivePourcomplete
-      )
+      ),
+      new Trigger(Trigger.KEY_PRESSED, { key: "s" }, this.whenKeySPressed)
     ];
 
     this.vars.ontray = 0;
@@ -64,45 +68,6 @@ export default class Waterglass2 extends Sprite {
 
   }
 
-  *whenthisspriteclicked() {
-    if (
-      this.toNumber(this.stage.vars.cupslot) === 1 &&
-      this.toNumber(this.vars.ontray) === 1
-    ) {
-      this.stage.vars.cupslot = 0;
-      this.vars.ontray = 0;
-      this.stage.vars.waterglassontray = 0;
-      if (this.stage.costume.name === "Kitchen") {
-        this.goto(-110, 154);
-        return;
-      } else {
-        this.vars.ontray = 2;
-        this.stage.vars.waterglassontray = 0;
-        this.y -= 30;
-        this.stage.vars.waterglassx = this.x;
-
-        this.visible = true;
-        if (
-          this.toNumber(this.stage.vars.randomdrinknumber) === 3 &&
-          this.toNumber(this.vars.ontray) === 2 &&
-          this.costume.name === "FullWaterGlass"
-        ) {
-          yield* this.score(this.stage.vars.waterglassx);
-        }
-        return;
-      }
-    }
-    if (
-      this.toNumber(this.stage.vars.cupslot) === 1 &&
-      this.toNumber(this.vars.ontray) === 0
-    ) {
-      return;
-    } else {
-      this.vars.ontray = 1;
-      this.stage.vars.cupslot = 1;
-      this.stage.vars.waterglassontray = 1;
-    }
-  }
 
   *whenIReceiveStartgame() {
     this.watchers.ontray.visible = false;
@@ -111,15 +76,6 @@ export default class Waterglass2 extends Sprite {
     this.goto(-110, 154);
     this.visible = false;
     while (true) {
-      if (this.toNumber(this.vars.ontray) === 0) {
-        // //this._layerOrder = 3;
-      }
-      if (this.toNumber(this.vars.ontray) === 1) {
-        // //this._layerOrder = 60;
-      }
-      if (this.toNumber(this.vars.ontray) === 2) {
-        // //this._layerOrder = 60;
-      }
       if (
         this.stage.costume.name === "Kitchen" &&
         (this.toNumber(this.vars.ontray) === 0 ||
@@ -152,8 +108,13 @@ export default class Waterglass2 extends Sprite {
       ) {
         this.goto(this.toNumber(this.stage.vars.baristalocation) + -6, 6);
       }
+      this.stage.vars.waterglassx = this.x;
       yield;
     }
+  }
+
+  *whenKeySPressed(){
+    yield* sFunction(this, "waterglassx",  "waterglassontray", -110, 154, "FullWaterGlass" );
   }
 
   *whenIReceivePourcomplete() {
@@ -171,13 +132,11 @@ export default class Waterglass2 extends Sprite {
     ) {
       this.broadcast("OrderComplete");
       yield* this.wait(2);
-      console.log("water layer", this._layerOrder);
       yield* this.glide(
         1,
         this.sprites["Customer"].x,
         this.sprites["Customer"].y
       );
-      // //this._layerOrder = 3;
       this.costume = "EmptyWaterGlass";
       this.stage.vars.waterglassvolume = 0;
       this.goto(-110, 154);
@@ -195,7 +154,6 @@ export default class Waterglass2 extends Sprite {
         this.sprites["Customer"].x,
         this.sprites["Customer"].y
       );
-      // //this._layerOrder = 3;
       this.costume = "EmptyWaterGlass";
       this.stage.vars.waterglassvolume = 0;
       this.goto(-110, 154);
@@ -213,7 +171,6 @@ export default class Waterglass2 extends Sprite {
         this.sprites["Customer"].x,
         this.sprites["Customer"].y
       );
-      // //this._layerOrder = 3;
       this.costume = "EmptyWaterGlass";
       this.stage.vars.waterglassvolume = 0;
       this.goto(-110, 154);

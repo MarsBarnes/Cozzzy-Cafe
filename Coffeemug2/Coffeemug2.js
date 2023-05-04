@@ -9,6 +9,10 @@ import {
   Sound
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
+import{
+  sFunction
+} from "../globalFunctionsIWrote.js";
+
 export default class Coffeemug2 extends Sprite {
   constructor(...args) {
     super(...args);
@@ -33,12 +37,12 @@ export default class Coffeemug2 extends Sprite {
         { name: "StartGame" },
         this.whenIReceiveStartgame
       ),
-      new Trigger(Trigger.CLICKED, this.whenthisspriteclicked),
       new Trigger(
         Trigger.BROADCAST,
         { name: "PourComplete" },
         this.whenIReceivePourcomplete
-      )
+      ),
+      new Trigger(Trigger.KEY_PRESSED, { key: "s" }, this.whenKeySPressed)
     ];
 
     this.vars.ontray = 0;
@@ -66,15 +70,6 @@ export default class Coffeemug2 extends Sprite {
     this.goto(-48, 150);
     this.visible = false;
     while (true) {
-      if (this.toNumber(this.vars.ontray) === 0) {
-        //this._layerOrder = 1;
-      }
-      if (this.toNumber(this.vars.ontray) === 1) {
-        //this._layerOrder = 50;
-      }
-      if (this.toNumber(this.vars.ontray) === 2) {
-        //this._layerOrder = 50;
-      }
       if (
         this.stage.costume.name === "Kitchen" &&
         (this.toNumber(this.vars.ontray) === 0 ||
@@ -107,50 +102,15 @@ export default class Coffeemug2 extends Sprite {
       ) {
         this.goto(this.toNumber(this.stage.vars.baristalocation) + -12, 0);
       }
+      this.stage.vars.coffeemugx = this.x;
       yield;
     }
   }
 
-  *whenthisspriteclicked() {
-    if (
-      this.toNumber(this.stage.vars.cupslot) === 1 &&
-      this.toNumber(this.vars.ontray) === 1
-    ) {
-      this.stage.vars.cupslot = 0;
-      this.vars.ontray = 0;
-      this.stage.vars.mugontray = 0;
-      if (this.stage.costume.name === "Kitchen") {
-        this.goto(-48, 150);
-        return;
-      } else {
-        this.vars.ontray = 2;
-        this.stage.vars.mugontray = 0;
-        this.y -= 30;
-        this.stage.vars.mugx = this.x;
-        
-        this.visible = true;
-        if (
-          this.toNumber(this.stage.vars.randomdrinknumber) === 1 &&
-          this.toNumber(this.vars.ontray) === 2 &&
-          this.costume.name === "FullMug"
-        ) {
-          yield* this.score(this.stage.vars.mugx);
-        }
-        return;
-      }
-    }
-    if (
-      this.toNumber(this.stage.vars.cupslot) === 1 &&
-      this.toNumber(this.vars.ontray) === 0
-    ) {
-      return;
-    } else {
-      this.vars.ontray = 1;
-      this.stage.vars.cupslot = 1;
-      this.stage.vars.mugontray = 1;
-    }
+  *whenKeySPressed(){
+    yield* sFunction(this, "coffeemugx",  "mugontray", -48, 150, "FullMug");
   }
-
+  
   *whenIReceivePourcomplete() {
     if (this.toNumber(this.vars.ontray) === 1) {
       this.costume = "FullMug";
@@ -171,7 +131,6 @@ export default class Coffeemug2 extends Sprite {
         this.sprites["Customer"].x,
         this.sprites["Customer"].y
       );
-      // used to go to layer 5 here
       this.costume = "EmptyMug";
       this.stage.vars.coffeemugvolume = 0;
       this.goto(-48, 150);
@@ -189,7 +148,6 @@ export default class Coffeemug2 extends Sprite {
         this.sprites["Customer"].x,
         this.sprites["Customer"].y
       );
-      // used to go to layer 5 here
       this.costume = "EmptyMug";
       this.stage.vars.coffeemugvolume = 0;
       this.goto(-48, 150);
@@ -207,7 +165,6 @@ export default class Coffeemug2 extends Sprite {
         this.sprites["Customer"].x,
         this.sprites["Customer"].y
       );
-      // used to go to layer 5 here
       this.costume = "EmptyMug";
       this.stage.vars.coffeemugvolume = 0;
       this.goto(-48, 150);
