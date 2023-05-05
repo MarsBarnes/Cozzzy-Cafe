@@ -39,7 +39,7 @@ export default class Money extends Sprite {
         { name: "StartGame" },
         this.whenIReceiveStartgame
       ),
-      new Trigger(Trigger.KEY_PRESSED, { key: "s" }, this.whenKeySPressed)
+      new Trigger(Trigger.KEY_PRESSED, { key: "w" }, this.whenKeyWPressed)
     ];
   }
 
@@ -73,11 +73,11 @@ export default class Money extends Sprite {
     this.goto(this.sprites["Customer"].x, this.sprites["Customer"].y);
     this.x += 130;
     this.y -= 60;
-    console.log("whenIReceiveOrdercomplete:     x: " + this.x + "y: " + this.y)
+    // console.log("whenIReceiveOrdercomplete:     x: " + this.x + "y: " + this.y)
     yield* this.wait(2);
   }
 
-  *whenKeySPressed(){ 
+  *whenKeyWPressed(){ 
       yield* sFunction3(this, this.x);
   }
 

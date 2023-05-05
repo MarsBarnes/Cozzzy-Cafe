@@ -108,7 +108,7 @@ export default class Coffeemug2 extends Sprite {
   }
 
   *whenKeySPressed(){
-    yield* sFunction(this, "coffeemugx",  "mugontray", -48, 150, "FullMug", 1);
+      yield* sFunction(this, "coffeemugx",  "mugontray", -48, 150, "FullMug", 1);
   }
   
   *whenIReceivePourcomplete() {
@@ -125,12 +125,6 @@ export default class Coffeemug2 extends Sprite {
         this.compare(numberOrText, -250) > 0
     ) {
       this.broadcast("OrderComplete");
-      yield* this.wait(2);
-      yield* this.glide(
-        1,
-        this.sprites["Customer"].x,
-        this.sprites["Customer"].y
-      );
       this.costume = "EmptyMug";
       this.stage.vars.coffeemugvolume = 0;
       this.goto(-48, 150);
@@ -142,12 +136,6 @@ export default class Coffeemug2 extends Sprite {
       this.compare(numberOrText, 47) < 0 && this.compare(numberOrText, -106) > 0
     ) {
       this.broadcast("OrderComplete");
-      yield* this.wait(2);
-      yield* this.glide(
-        1,
-        this.sprites["Customer"].x,
-        this.sprites["Customer"].y
-      );
       this.costume = "EmptyMug";
       this.stage.vars.coffeemugvolume = 0;
       this.goto(-48, 150);
@@ -159,12 +147,6 @@ export default class Coffeemug2 extends Sprite {
       this.compare(numberOrText, 200) < 0 && this.compare(numberOrText, 48) > 0
     ) {
       this.broadcast("OrderComplete");
-      yield* this.wait(2);
-      yield* this.glide(
-        1,
-        this.sprites["Customer"].x,
-        this.sprites["Customer"].y
-      );
       this.costume = "EmptyMug";
       this.stage.vars.coffeemugvolume = 0;
       this.goto(-48, 150);

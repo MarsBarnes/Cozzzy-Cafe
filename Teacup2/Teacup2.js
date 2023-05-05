@@ -55,6 +55,7 @@ export default class Teacup2 extends Sprite {
       x: 497,
       y: 141
     });
+
   }
 
   *whenGreenFlagClicked() {
@@ -125,13 +126,13 @@ export default class Teacup2 extends Sprite {
       this.compare(numberOrText, -105) < 0 &&
         this.compare(numberOrText, -250) > 0
     ) {
+      // yield* this.wait(2);
+      // yield* this.glide(
+      //   1,
+      //   this.sprites["Customer"].x,
+      //   this.sprites["Customer"].y
+      // );
       this.broadcast("OrderComplete");
-      yield* this.wait(2);
-      yield* this.glide(
-        1,
-        this.sprites["Customer"].x,
-        this.sprites["Customer"].y
-      );
       this.costume = "EmptyTeaCup";
       this.stage.vars.teacupvolume = 0;
       this.goto(-175, 146);
@@ -142,13 +143,13 @@ export default class Teacup2 extends Sprite {
       this.toNumber(this.stage.vars.seatnumber) === 2 &&
       this.compare(numberOrText, 47) < 0 && this.compare(numberOrText, -106) > 0
     ) {
+      // yield* this.wait(2);
+      // yield* this.glide(
+      //   1,
+      //   this.sprites["Customer"].x,
+      //   this.sprites["Customer"].y
+      // );
       this.broadcast("OrderComplete");
-      yield* this.wait(2);
-      yield* this.glide(
-        1,
-        this.sprites["Customer"].x,
-        this.sprites["Customer"].y
-      );
       this.costume = "EmptyTeaCup";
       this.stage.vars.teacupvolume = 0;
       this.goto(-175, 146);
@@ -159,13 +160,13 @@ export default class Teacup2 extends Sprite {
       this.toNumber(this.stage.vars.seatnumber) === 3 &&
       this.compare(numberOrText, 200) < 0 && this.compare(numberOrText, 48) > 0
     ) {
+      // yield* this.wait(2);
+      // yield* this.glide(
+      //   1,
+      //   this.sprites["Customer"].x,
+      //   this.sprites["Customer"].y
+      // );
       this.broadcast("OrderComplete");
-      yield* this.wait(2);
-      yield* this.glide(
-        1,
-        this.sprites["Customer"].x,
-        this.sprites["Customer"].y
-      );
       this.costume = "EmptyTeaCup";
       this.stage.vars.teacupvolume = 0;
       this.goto(-175, 146);
