@@ -39,7 +39,7 @@ export default class Money extends Sprite {
         { name: "StartGame" },
         this.whenIReceiveStartgame
       ),
-      new Trigger(Trigger.KEY_PRESSED, { key: "w" }, this.whenKeyWPressed)
+      new Trigger(Trigger.KEY_PRESSED, { key: "s" }, this.whenKeySPressed)
     ];
   }
 
@@ -77,7 +77,7 @@ export default class Money extends Sprite {
     yield* this.wait(2);
   }
 
-  *whenKeyWPressed(){ 
+  *whenKeySPressed(){ 
       yield* sFunction3(this, this.x);
   }
 

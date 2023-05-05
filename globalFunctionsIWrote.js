@@ -1,3 +1,4 @@
+//this function is for picking up and putting down cups
 export function *sFunction(self, objectLocation, objectOnTray, objectHomeX, objectHomeY, fullCostume, drinkNumber) {
 if(self.stage.costume.name === "Kitchen" &&
     self.stage.vars.baristalocation - self.stage.vars[objectLocation] < 30 &&
@@ -72,7 +73,7 @@ self.stage.vars.baristalocation - self.stage.vars[objectLocation] > -30
         self.stage.vars.cupslot = 0;
         self.vars.ontray = 2;
         self.stage.vars[objectOnTray] = 0;
-        console.log("setdown "+self.y + fullCostume)
+        // console.log("setdown "+self.y + fullCostume)
 
             if (
                 self.toNumber(self.stage.vars.randomdrinknumber) === drinkNumber &&
@@ -80,7 +81,7 @@ self.stage.vars.baristalocation - self.stage.vars[objectLocation] > -30
                 self.costume.name === fullCostume
             ) {
                 self.toNumber(self.vars.ontray) === 3;
-                console.log("before score  "+self.y + fullCostume)
+                // console.log("before score  "+self.y + fullCostume)
                 yield* self.score(self.stage.vars[objectLocation]);
                 }
             // if(self.y < -7) {
@@ -96,7 +97,7 @@ else{
 }
 
 // -------------------------------------------------------------------------------------------------------------------------------
-
+//this function is for picking up and setting down the pitcher/teapot/coffeepot
 export function *sFunction2(self, objectHomeX, objectHomeY, fullCostume) {
     if (
         self.stage.costume.name === "Kitchen" &&
@@ -130,7 +131,7 @@ export function *sFunction2(self, objectHomeX, objectHomeY, fullCostume) {
 }
 
 // -------------------------------------------------------------------------------------------------------------------------------
-
+//this function is for picking up money $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 export function *sFunction3(self, objectLocation) {
     if(self.stage.costume.name === "Bar"){
     // console.log("sFunction3:    " + "baristaLocation: " + self.stage.vars.baristalocation + "objectLocation: " + objectLocation )
