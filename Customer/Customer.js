@@ -15,10 +15,45 @@ export default class Customer extends Sprite {
 
     this.costumes = [
       new Costume(
-        "CustomerStanding",
-        "./Customer/costumes/CustomerStanding.png",
+        "Back1",
+        "./Customer/costumes/CustomerStandingBack1.png",
         { x: 80, y: 227 }
       ),
+      new Costume(
+        "Back2",
+        "./Customer/costumes/CustomerStandingBack2.png",
+        { x: 80, y: 227 }
+      ),
+      new Costume(
+        "Back3",
+        "./Customer/costumes/CustomerStandingBack3.png",
+        { x: 80, y: 227 }
+      ),
+      new Costume(
+        "Back4",
+        "./Customer/costumes/CustomerStandingBack4.png",
+        { x: 80, y: 227 }
+      ),
+      new Costume(
+        "Front1",
+        "./Customer/costumes/CustomerStandingFront1.png",
+        { x: 80, y: 227 }
+      ),
+      new Costume(
+        "Front2",
+        "./Customer/costumes/CustomerStandingFront2.png",
+        { x: 80, y: 227 }
+      ),
+      new Costume(
+        "Front3",
+        "./Customer/costumes/CustomerStandingFront3.png",
+        { x: 80, y: 227 }
+      ),
+      new Costume(
+        "Front4",
+        "./Customer/costumes/CustomerStandingFront4.png",
+        { x: 80, y: 227 }
+      ),     
       new Costume(
         "CustomerSitting",
         "./Customer/costumes/CustomerSitting.png",
@@ -52,22 +87,30 @@ export default class Customer extends Sprite {
 
   *whenGreenFlagClicked() {
     this.visible = false;
-  }
+    // this.costume = "CustomerStanding";
+    // if(customerlocation !== 175 && customerlocation !== -194 && customerlocation !== -51 && customerlocation !== 90 && customerlocation !== 174){
+    //   for (let i = 0; i < 4; i++) {
+    //     this.costumeNumber++;
+    //     yield;
+    //   }
+  // }
+    }
+  
 
   *whenIReceiveOrdercomplete() {
     this.stage.vars.customerlocation = 175;
     yield* this.wait(5);
     if (this.toNumber(this.stage.vars.seatnumber) === 1) {
-      this.costume = "CustomerStanding";
+      this.costume = "Front1";
       yield* this.glide(3, 175, -278);
     }
     if (this.toNumber(this.stage.vars.seatnumber) === 2) {
-      this.costume = "CustomerStanding";
+      this.costume = "Front1";
       this.stage.vars.customerlocation = 175;
       yield* this.glide(2, 175, -278);
     }
     if (this.toNumber(this.stage.vars.seatnumber) === 3) {
-      this.costume = "CustomerStanding";
+      this.costume = "Front1";
       this.stage.vars.customerlocation = 175;
       yield* this.glide(1, 175, -278);
     }
@@ -77,7 +120,7 @@ export default class Customer extends Sprite {
   }
 
   *whenIReceiveNewcustomer() {
-    this.costume = "CustomerStanding";
+    this.costume = "Back1";
     this.goto(175, -278);
     this.direction = 90;
     this.stage.vars.customerlocation = 174;
