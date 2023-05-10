@@ -136,15 +136,15 @@ export default class Stage extends StageBase {
       style: "normal",
       visible: true,
       value: () => this.vars.money,
-      x: 246,
-      y: -158
+      x: 500,
+      y: 175
     });
     this.watchers.timeremaining = new Watcher({
-      label: "TimeRemaining",
+      label: "Time",
       style: "normal",
       visible: true,
       value: () => this.vars.timeremaining,
-      x: 245,
+      x: 615,
       y: 175
     });
   }
