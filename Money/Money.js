@@ -6,12 +6,10 @@ import {
   Watcher,
   Costume,
   Color,
-  Sound
+  Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
-import{
-  sFunction3
-} from "../globalFunctionsIWrote.js";
+import { sFunction3 } from "../globalFunctionsIWrote.js";
 
 export default class Money extends Sprite {
   constructor(...args) {
@@ -20,8 +18,8 @@ export default class Money extends Sprite {
     this.costumes = [
       new Costume("MoneyNew", "./Money/costumes/MoneyNew.png", {
         x: 100,
-        y: 100
-      })
+        y: 100,
+      }),
     ];
 
     this.sounds = [new Sound("pop", "./Money/sounds/pop.wav")];
@@ -39,7 +37,7 @@ export default class Money extends Sprite {
         { name: "StartGame" },
         this.whenIReceiveStartgame
       ),
-      new Trigger(Trigger.KEY_PRESSED, { key: "s" }, this.whenKeySPressed)
+      new Trigger(Trigger.KEY_PRESSED, { key: "s" }, this.whenKeySPressed),
     ];
   }
 
@@ -49,13 +47,13 @@ export default class Money extends Sprite {
       if (this.stage.costume.name === "Kitchen") {
         this.visible = false;
       }
-      if  (this.stage.costume.name === "GameOver") {
+      if (this.stage.costume.name === "GameOver") {
         this.visible = false;
       }
-      if(this.stage.costume.name === "Bar" && this.y > 90) {
+      if (this.stage.costume.name === "Bar" && this.y > 90) {
         this.visible = false;
       }
-      if(this.stage.costume.name === "Bar" && this.y < 90) {
+      if (this.stage.costume.name === "Bar" && this.y < 90) {
         this.visible = true;
       }
       //need to define  new varibale here to keep track of money location
@@ -71,7 +69,7 @@ export default class Money extends Sprite {
   *whenIReceiveOrdercomplete() {
     yield* this.wait(2);
     // if(this.stage.costume.name === "Bar"){
-      this.visible = true;
+    this.visible = true;
     // }
     this.goto(this.sprites["Customer"].x, this.sprites["Customer"].y);
     this.x += 130;
@@ -80,8 +78,8 @@ export default class Money extends Sprite {
     yield* this.wait(2);
   }
 
-  *whenKeySPressed(){ 
-      yield* sFunction3(this, this.x);
+  *whenKeySPressed() {
+    yield* sFunction3(this, this.x);
   }
 
   // *whenthisspriteclicked() {
@@ -92,6 +90,4 @@ export default class Money extends Sprite {
   *whenIReceiveStartgame() {
     this.stage.watchers.money.visible = true;
   }
-
-
 }

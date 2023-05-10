@@ -6,7 +6,7 @@ import {
   Watcher,
   Costume,
   Color,
-  Sound
+  Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
 export default class Stage extends StageBase {
@@ -16,20 +16,23 @@ export default class Stage extends StageBase {
     this.costumes = [
       new Costume("Kitchen", "./Stage/costumes/Kitchen.png", {
         x: 480,
-        y: 360
+        y: 360,
       }),
       new Costume("Bar", "./Stage/costumes/Bar.png", { x: 480, y: 360 }),
       new Costume("CozzzyCafe", "./Stage/costumes/CozzzyCafe.png", {
         x: 480,
-        y: 360
+        y: 360,
       }),
-      new Costume("GameOver", "./Stage/costumes/GameOver.png", { x: 480, y: 360 })
+      new Costume("GameOver", "./Stage/costumes/GameOver.png", {
+        x: 480,
+        y: 360,
+      }),
     ];
 
     this.sounds = [new Sound("pop", "./Stage/sounds/pop.wav")];
 
     this.triggers = [
-      new Trigger(Trigger.GREEN_FLAG, this.whenGreenFlagClicked)
+      new Trigger(Trigger.GREEN_FLAG, this.whenGreenFlagClicked),
     ];
 
     this.vars.baristalocation = 17;
@@ -57,7 +60,7 @@ export default class Stage extends StageBase {
       visible: false,
       value: () => this.vars.baristalocation,
       x: 245,
-      y: 175
+      y: 175,
     });
     this.watchers.customerlocation = new Watcher({
       label: "CustomerLocation",
@@ -65,7 +68,7 @@ export default class Stage extends StageBase {
       visible: false,
       value: () => this.vars.customerlocation,
       x: 245,
-      y: 148
+      y: 148,
     });
     this.watchers.seatnumber = new Watcher({
       label: "SeatNumber",
@@ -73,7 +76,7 @@ export default class Stage extends StageBase {
       visible: false,
       value: () => this.vars.seatnumber,
       x: 570,
-      y: -128
+      y: -128,
     });
     this.watchers.randomdrinknumber = new Watcher({
       label: "RandomDrinkNumber",
@@ -81,7 +84,7 @@ export default class Stage extends StageBase {
       visible: false,
       value: () => this.vars.randomdrinknumber,
       x: 521,
-      y: -154
+      y: -154,
     });
     this.watchers.traylocation = new Watcher({
       label: "TrayLocation",
@@ -89,7 +92,7 @@ export default class Stage extends StageBase {
       visible: false,
       value: () => this.vars.traylocation,
       x: 243,
-      y: 144
+      y: 144,
     });
     this.watchers.cupslot = new Watcher({
       label: "CupSlot",
@@ -97,7 +100,7 @@ export default class Stage extends StageBase {
       visible: false,
       value: () => this.vars.cupslot,
       x: 246,
-      y: 175
+      y: 175,
     });
     this.watchers.vesselslot = new Watcher({
       label: "VesselSlot",
@@ -105,7 +108,7 @@ export default class Stage extends StageBase {
       visible: false,
       value: () => this.vars.vesselslot,
       x: 245,
-      y: 148
+      y: 148,
     });
     this.watchers.mugontray = new Watcher({
       label: "MugOnTray",
@@ -113,7 +116,7 @@ export default class Stage extends StageBase {
       visible: false,
       value: () => this.vars.mugontray,
       x: 245,
-      y: 175
+      y: 175,
     });
     this.watchers.teacupontray = new Watcher({
       label: "TeaCupOnTray",
@@ -121,7 +124,7 @@ export default class Stage extends StageBase {
       visible: false,
       value: () => this.vars.teacupontray,
       x: 245,
-      y: 148
+      y: 148,
     });
     this.watchers.waterglassontray = new Watcher({
       label: "WaterGlassOnTray",
@@ -129,7 +132,7 @@ export default class Stage extends StageBase {
       visible: false,
       value: () => this.vars.waterglassontray,
       x: 545,
-      y: 174
+      y: 174,
     });
     this.watchers.money = new Watcher({
       label: "Money",
@@ -137,7 +140,7 @@ export default class Stage extends StageBase {
       visible: true,
       value: () => this.vars.money,
       x: 500,
-      y: 175
+      y: 175,
     });
     this.watchers.timeremaining = new Watcher({
       label: "Time",
@@ -145,7 +148,7 @@ export default class Stage extends StageBase {
       visible: true,
       value: () => this.vars.timeremaining,
       x: 615,
-      y: 175
+      y: 175,
     });
   }
 

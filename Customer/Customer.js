@@ -6,7 +6,7 @@ import {
   Watcher,
   Costume,
   Color,
-  Sound
+  Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
 export default class Customer extends Sprite {
@@ -14,51 +14,43 @@ export default class Customer extends Sprite {
     super(...args);
 
     this.costumes = [
-      new Costume(
-        "Back1",
-        "./Customer/costumes/CustomerStandingBack1.png",
-        { x: 80, y: 227 }
-      ),
-      new Costume(
-        "Back2",
-        "./Customer/costumes/CustomerStandingBack2.png",
-        { x: 80, y: 227 }
-      ),
-      new Costume(
-        "Back3",
-        "./Customer/costumes/CustomerStandingBack3.png",
-        { x: 80, y: 227 }
-      ),
-      new Costume(
-        "Back4",
-        "./Customer/costumes/CustomerStandingBack4.png",
-        { x: 80, y: 227 }
-      ),
-      new Costume(
-        "Front1",
-        "./Customer/costumes/CustomerStandingFront1.png",
-        { x: 80, y: 227 }
-      ),
-      new Costume(
-        "Front2",
-        "./Customer/costumes/CustomerStandingFront2.png",
-        { x: 80, y: 227 }
-      ),
-      new Costume(
-        "Front3",
-        "./Customer/costumes/CustomerStandingFront3.png",
-        { x: 80, y: 227 }
-      ),
-      new Costume(
-        "Front4",
-        "./Customer/costumes/CustomerStandingFront4.png",
-        { x: 80, y: 227 }
-      ),     
+      new Costume("Back1", "./Customer/costumes/CustomerStandingBack1.png", {
+        x: 80,
+        y: 227,
+      }),
+      new Costume("Back2", "./Customer/costumes/CustomerStandingBack2.png", {
+        x: 80,
+        y: 227,
+      }),
+      new Costume("Back3", "./Customer/costumes/CustomerStandingBack3.png", {
+        x: 80,
+        y: 227,
+      }),
+      new Costume("Back4", "./Customer/costumes/CustomerStandingBack4.png", {
+        x: 80,
+        y: 227,
+      }),
+      new Costume("Front1", "./Customer/costumes/CustomerStandingFront1.png", {
+        x: 80,
+        y: 227,
+      }),
+      new Costume("Front2", "./Customer/costumes/CustomerStandingFront2.png", {
+        x: 80,
+        y: 227,
+      }),
+      new Costume("Front3", "./Customer/costumes/CustomerStandingFront3.png", {
+        x: 80,
+        y: 227,
+      }),
+      new Costume("Front4", "./Customer/costumes/CustomerStandingFront4.png", {
+        x: 80,
+        y: 227,
+      }),
       new Costume(
         "CustomerSitting",
         "./Customer/costumes/CustomerSitting.png",
         { x: 80, y: 227 }
-      )
+      ),
     ];
 
     this.sounds = [];
@@ -79,7 +71,7 @@ export default class Customer extends Sprite {
         Trigger.BROADCAST,
         { name: "NewCustomer" },
         this.whenIReceiveNewcustomer2
-      )
+      ),
     ];
 
     this.vars.placematnumber = 3;
@@ -93,17 +85,17 @@ export default class Customer extends Sprite {
     //     this.costumeNumber++;
     //     yield;
     //   }
-  // }
-  while(true) {
-    if  (this.stage.costume.name === "GameOver") {
-      this.visible = false;
-    }    if  (this.stage.costume.name === "Bar") {
-      this.visible = true;
+    // }
+    while (true) {
+      if (this.stage.costume.name === "GameOver") {
+        this.visible = false;
+      }
+      if (this.stage.costume.name === "Bar") {
+        this.visible = true;
+      }
+      yield;
     }
-    yield
   }
-    }
-  
 
   *whenIReceiveOrdercomplete() {
     this.stage.vars.customerlocation = 175;
@@ -162,12 +154,10 @@ export default class Customer extends Sprite {
         this.stage.costume.name === "Bar" &&
         this.compare(this.stage.vars.customerlocation, 175) < 0
       ) {
-        yield
+        yield;
         this.visible = true;
       }
       yield;
     }
   }
-
-
 }

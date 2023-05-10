@@ -6,7 +6,7 @@ import {
   Watcher,
   Costume,
   Color,
-  Sound
+  Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
 export default class Barista extends Sprite {
@@ -16,8 +16,8 @@ export default class Barista extends Sprite {
     this.costumes = [
       new Costume("Barista", "./Barista/costumes/Barista.png", {
         x: 80,
-        y: 247
-      })
+        y: 247,
+      }),
     ];
 
     this.sounds = [];
@@ -30,7 +30,7 @@ export default class Barista extends Sprite {
         Trigger.BROADCAST,
         { name: "StartGame" },
         this.whenIReceiveStartgame
-      )
+      ),
     ];
   }
 
@@ -79,17 +79,15 @@ export default class Barista extends Sprite {
   }
 
   *whenIReceiveStartgame() {
-    
     this.stage.vars.baristalocation = 175;
     this.direction = 90;
     this.goto(175, -4);
     this.visible = true;
     while (true) {
-      if  (this.stage.costume.name === "GameOver") {
+      if (this.stage.costume.name === "GameOver") {
         this.visible = false;
       }
       yield;
     }
   }
-
 }

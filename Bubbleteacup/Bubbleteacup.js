@@ -6,7 +6,7 @@ import {
   Watcher,
   Costume,
   Color,
-  Sound
+  Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
 export default class Bubbleteacup extends Sprite {
@@ -16,8 +16,8 @@ export default class Bubbleteacup extends Sprite {
     this.costumes = [
       new Costume("TeaCup", "./Bubbleteacup/costumes/TeaCup.png", {
         x: 35,
-        y: 21
-      })
+        y: 21,
+      }),
     ];
 
     this.sounds = [];
@@ -33,17 +33,15 @@ export default class Bubbleteacup extends Sprite {
         Trigger.BROADCAST,
         { name: "NewCustomer" },
         this.whenIReceiveNewcustomer
-      )
+      ),
     ];
   }
 
   *whenGreenFlagClicked() {
     this.visible = false;
-
   }
 
-  *whenIReceiveOrdercomplete() { }
-
+  *whenIReceiveOrdercomplete() {}
 
   *whenIReceiveNewcustomer() {
     this.visible = false;
@@ -54,7 +52,8 @@ export default class Bubbleteacup extends Sprite {
       this.visible = true;
     }
     while (true) {
-      if (this.stage.costume.name !== "GameOver" &&
+      if (
+        this.stage.costume.name !== "GameOver" &&
         this.stage.costume.name === "Bar" &&
         this.toNumber(this.stage.vars.randomdrinknumber) === 2 &&
         (this.toNumber(this.stage.vars.customerlocation) === -194 ||
@@ -62,9 +61,7 @@ export default class Bubbleteacup extends Sprite {
           this.toNumber(this.stage.vars.customerlocation) === 90)
       ) {
         this.visible = true;
-      }
-      
-     else {
+      } else {
         this.visible = false;
       }
       yield;

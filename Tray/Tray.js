@@ -6,7 +6,7 @@ import {
   Watcher,
   Costume,
   Color,
-  Sound
+  Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
 export default class Tray extends Sprite {
@@ -14,7 +14,7 @@ export default class Tray extends Sprite {
     super(...args);
 
     this.costumes = [
-      new Costume("Tray", "./Tray/costumes/Tray.png", { x: 92, y: -17 })
+      new Costume("Tray", "./Tray/costumes/Tray.png", { x: 92, y: -17 }),
     ];
 
     this.sounds = [];
@@ -25,7 +25,7 @@ export default class Tray extends Sprite {
         Trigger.BROADCAST,
         { name: "StartGame" },
         this.whenIReceiveStartgame
-      )
+      ),
     ];
   }
 
@@ -38,13 +38,11 @@ export default class Tray extends Sprite {
       this.visible = true;
       this.goto(this.toNumber(this.stage.vars.baristalocation), 0);
       if (!(this.toNumber(undefined) === 5)) {
-        
       }
-      if  (this.stage.costume.name === "GameOver") {
+      if (this.stage.costume.name === "GameOver") {
         this.visible = false;
       }
       yield;
     }
   }
-
 }

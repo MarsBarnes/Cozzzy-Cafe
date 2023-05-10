@@ -6,12 +6,10 @@ import {
   Watcher,
   Costume,
   Color,
-  Sound
+  Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
-import{
-  sFunction
-} from "../globalFunctionsIWrote.js";
+import { sFunction } from "../globalFunctionsIWrote.js";
 
 export default class Teacup2 extends Sprite {
   constructor(...args) {
@@ -20,12 +18,12 @@ export default class Teacup2 extends Sprite {
     this.costumes = [
       new Costume("EmptyTeaCup", "./Teacup2/costumes/EmptyTeaCup.png", {
         x: 35,
-        y: 21
+        y: 21,
       }),
       new Costume("FullTeaCup", "./Teacup2/costumes/FullTeaCup.svg", {
         x: 17.5,
-        y: 10.5
-      })
+        y: 10.5,
+      }),
     ];
 
     this.sounds = [];
@@ -42,7 +40,7 @@ export default class Teacup2 extends Sprite {
         { name: "PourComplete" },
         this.whenIReceivePourcomplete
       ),
-      new Trigger(Trigger.KEY_PRESSED, { key: "s" }, this.whenKeySPressed)
+      new Trigger(Trigger.KEY_PRESSED, { key: "s" }, this.whenKeySPressed),
     ];
 
     this.vars.ontray = 0;
@@ -53,15 +51,13 @@ export default class Teacup2 extends Sprite {
       visible: false,
       value: () => this.vars.ontray,
       x: 497,
-      y: 141
+      y: 141,
     });
-
   }
 
   *whenGreenFlagClicked() {
     this.costume = "EmptyTeaCup";
     this.visible = false;
-
   }
 
   *whenIReceiveStartgame() {
@@ -72,7 +68,7 @@ export default class Teacup2 extends Sprite {
     this.goto(-175, 146);
     this.visible = false;
     while (true) {
-      if  (this.stage.costume.name === "GameOver") {
+      if (this.stage.costume.name === "GameOver") {
         this.visible = false;
       }
       if (
@@ -112,8 +108,16 @@ export default class Teacup2 extends Sprite {
     }
   }
 
-  *whenKeySPressed(){
-    yield* sFunction(this, "teacupx",  "teacupontray", -175, 146, "FullTeaCup", 2);
+  *whenKeySPressed() {
+    yield* sFunction(
+      this,
+      "teacupx",
+      "teacupontray",
+      -175,
+      146,
+      "FullTeaCup",
+      2
+    );
   }
 
   *whenIReceivePourcomplete() {
@@ -127,7 +131,7 @@ export default class Teacup2 extends Sprite {
     if (
       this.toNumber(this.stage.vars.seatnumber) === 1 &&
       this.compare(numberOrText, -105) < 0 &&
-        this.compare(numberOrText, -250) > 0
+      this.compare(numberOrText, -250) > 0
     ) {
       // yield* this.wait(2);
       // yield* this.glide(
@@ -144,7 +148,8 @@ export default class Teacup2 extends Sprite {
     }
     if (
       this.toNumber(this.stage.vars.seatnumber) === 2 &&
-      this.compare(numberOrText, 47) < 0 && this.compare(numberOrText, -106) > 0
+      this.compare(numberOrText, 47) < 0 &&
+      this.compare(numberOrText, -106) > 0
     ) {
       // yield* this.wait(2);
       // yield* this.glide(
@@ -161,7 +166,8 @@ export default class Teacup2 extends Sprite {
     }
     if (
       this.toNumber(this.stage.vars.seatnumber) === 3 &&
-      this.compare(numberOrText, 200) < 0 && this.compare(numberOrText, 48) > 0
+      this.compare(numberOrText, 200) < 0 &&
+      this.compare(numberOrText, 48) > 0
     ) {
       // yield* this.wait(2);
       // yield* this.glide(
@@ -177,5 +183,4 @@ export default class Teacup2 extends Sprite {
       this.visible = false;
     }
   }
-
 }

@@ -6,7 +6,7 @@ import {
   Watcher,
   Costume,
   Color,
-  Sound
+  Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
 export default class Placemat3 extends Sprite {
@@ -16,8 +16,8 @@ export default class Placemat3 extends Sprite {
     this.costumes = [
       new Costume("Placemat", "./Placemat3/costumes/Placemat.svg", {
         x: -38.5,
-        y: -3
-      })
+        y: -3,
+      }),
     ];
 
     this.sounds = [new Sound("pop", "./Placemat3/sounds/pop.wav")];
@@ -28,7 +28,7 @@ export default class Placemat3 extends Sprite {
         { name: "StartGame" },
         this.whenIReceiveStartgame
       ),
-      new Trigger(Trigger.GREEN_FLAG, this.whenGreenFlagClicked)
+      new Trigger(Trigger.GREEN_FLAG, this.whenGreenFlagClicked),
     ];
   }
 
@@ -42,15 +42,13 @@ export default class Placemat3 extends Sprite {
         // yield;
         this.visible = true;
       }
-      if  (this.stage.costume.name === "GameOver") {
+      if (this.stage.costume.name === "GameOver") {
         this.visible = false;
       }
       yield;
+    }
   }
-
-}
   *whenGreenFlagClicked() {
     this.visible = false;
   }
-
 }

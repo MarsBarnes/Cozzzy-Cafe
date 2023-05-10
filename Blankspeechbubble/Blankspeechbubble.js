@@ -6,7 +6,7 @@ import {
   Watcher,
   Costume,
   Color,
-  Sound
+  Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
 export default class Blankspeechbubble extends Sprite {
@@ -18,7 +18,7 @@ export default class Blankspeechbubble extends Sprite {
         "BlankSpeechBubble",
         "./Blankspeechbubble/costumes/BlankSpeechBubble.png",
         { x: 59, y: 49 }
-      )
+      ),
     ];
 
     this.sounds = [];
@@ -29,15 +29,13 @@ export default class Blankspeechbubble extends Sprite {
         Trigger.BROADCAST,
         { name: "NewCustomer" },
         this.whenIReceiveNewcustomer
-      )
+      ),
     ];
   }
 
   *whenGreenFlagClicked() {
     this.visible = false;
-    
   }
-
 
   *whenIReceiveNewcustomer() {
     this.visible = false;
@@ -56,7 +54,6 @@ export default class Blankspeechbubble extends Sprite {
           this.toNumber(this.stage.vars.customerlocation) === 90)
       ) {
         this.visible = true;
-        
       } else {
         this.visible = false;
       }

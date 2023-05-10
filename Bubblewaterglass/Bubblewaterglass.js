@@ -6,7 +6,7 @@ import {
   Watcher,
   Costume,
   Color,
-  Sound
+  Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
 export default class Bubblewaterglass extends Sprite {
@@ -16,8 +16,8 @@ export default class Bubblewaterglass extends Sprite {
     this.costumes = [
       new Costume("WaterGlass", "./Bubblewaterglass/costumes/WaterGlass.png", {
         x: 23,
-        y: 38
-      })
+        y: 38,
+      }),
     ];
 
     this.sounds = [];
@@ -33,17 +33,15 @@ export default class Bubblewaterglass extends Sprite {
         Trigger.BROADCAST,
         { name: "NewCustomer" },
         this.whenIReceiveNewcustomer
-      )
+      ),
     ];
   }
 
   *whenGreenFlagClicked() {
     this.visible = false;
-    
   }
 
   *whenIReceiveOrdercomplete() {}
-
 
   *whenIReceiveNewcustomer() {
     this.visible = false;
@@ -54,7 +52,8 @@ export default class Bubblewaterglass extends Sprite {
       this.visible = true;
     }
     while (true) {
-      if (this.stage.costume.name !== "GameOver" &&
+      if (
+        this.stage.costume.name !== "GameOver" &&
         this.stage.costume.name === "Bar" &&
         this.toNumber(this.stage.vars.randomdrinknumber) === 3 &&
         (this.toNumber(this.stage.vars.customerlocation) === -194 ||
@@ -62,9 +61,7 @@ export default class Bubblewaterglass extends Sprite {
           this.toNumber(this.stage.vars.customerlocation) === 90)
       ) {
         this.visible = true;
-        
-      } 
-      else {
+      } else {
         this.visible = false;
       }
       yield;

@@ -8,12 +8,10 @@ import {
   Watcher,
   Costume,
   Color,
-  Sound
+  Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
-import{
-  sFunction
-} from "../globalFunctionsIWrote.js";
+import { sFunction } from "../globalFunctionsIWrote.js";
 
 export default class Waterglass2 extends Sprite {
   constructor(...args) {
@@ -29,7 +27,7 @@ export default class Waterglass2 extends Sprite {
         "FullWaterGlass",
         "./Waterglass2/costumes/FullWaterGlass.svg",
         { x: 11.5, y: 19 }
-      )
+      ),
     ];
 
     this.sounds = [];
@@ -46,7 +44,7 @@ export default class Waterglass2 extends Sprite {
         { name: "PourComplete" },
         this.whenIReceivePourcomplete
       ),
-      new Trigger(Trigger.KEY_PRESSED, { key: "s" }, this.whenKeySPressed)
+      new Trigger(Trigger.KEY_PRESSED, { key: "s" }, this.whenKeySPressed),
     ];
 
     this.vars.ontray = 0;
@@ -57,7 +55,7 @@ export default class Waterglass2 extends Sprite {
       visible: false,
       value: () => this.vars.ontray,
       x: 490,
-      y: 90
+      y: 90,
     });
   }
 
@@ -65,9 +63,7 @@ export default class Waterglass2 extends Sprite {
     this.visible = false;
     this.costume = "EmptyWaterGlass";
     this.stage.vars.waterglassvolume = 0;
-
   }
-
 
   *whenIReceiveStartgame() {
     this.watchers.ontray.visible = false;
@@ -76,7 +72,7 @@ export default class Waterglass2 extends Sprite {
     this.goto(-110, 154);
     this.visible = false;
     while (true) {
-      if  (this.stage.costume.name === "GameOver") {
+      if (this.stage.costume.name === "GameOver") {
         this.visible = false;
       }
       if (
@@ -116,8 +112,16 @@ export default class Waterglass2 extends Sprite {
     }
   }
 
-  *whenKeySPressed(){
-    yield* sFunction(this, "waterglassx",  "waterglassontray", -110, 154, "FullWaterGlass", 3 );
+  *whenKeySPressed() {
+    yield* sFunction(
+      this,
+      "waterglassx",
+      "waterglassontray",
+      -110,
+      154,
+      "FullWaterGlass",
+      3
+    );
   }
 
   *whenIReceivePourcomplete() {
@@ -131,7 +135,7 @@ export default class Waterglass2 extends Sprite {
     if (
       this.toNumber(this.stage.vars.seatnumber) === 1 &&
       this.compare(numberOrText, -105) < 0 &&
-        this.compare(numberOrText, -250) > 0
+      this.compare(numberOrText, -250) > 0
     ) {
       this.broadcast("OrderComplete");
       // yield* this.wait(2);
@@ -148,7 +152,8 @@ export default class Waterglass2 extends Sprite {
     }
     if (
       this.toNumber(this.stage.vars.seatnumber) === 2 &&
-      this.compare(numberOrText, 47) < 0 && this.compare(numberOrText, -106) > 0
+      this.compare(numberOrText, 47) < 0 &&
+      this.compare(numberOrText, -106) > 0
     ) {
       this.broadcast("OrderComplete");
       // yield* this.wait(2);
@@ -165,7 +170,8 @@ export default class Waterglass2 extends Sprite {
     }
     if (
       this.toNumber(this.stage.vars.seatnumber) === 3 &&
-      this.compare(numberOrText, 200) < 0 && this.compare(numberOrText, 48) > 0
+      this.compare(numberOrText, 200) < 0 &&
+      this.compare(numberOrText, 48) > 0
     ) {
       this.broadcast("OrderComplete");
       // yield* this.wait(2);
@@ -181,5 +187,4 @@ export default class Waterglass2 extends Sprite {
       this.visible = false;
     }
   }
-
 }

@@ -6,7 +6,7 @@ import {
   Watcher,
   Costume,
   Color,
-  Sound
+  Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
 export default class Playbutton extends Sprite {
@@ -16,22 +16,21 @@ export default class Playbutton extends Sprite {
     this.costumes = [
       new Costume("PlayButton", "./Playbutton/costumes/PlayButton.png", {
         x: 172,
-        y: 37
-      })
+        y: 37,
+      }),
     ];
 
     this.sounds = [];
 
     this.triggers = [
       new Trigger(Trigger.GREEN_FLAG, this.whenGreenFlagClicked),
-      new Trigger(Trigger.CLICKED, this.whenthisspriteclicked)
+      new Trigger(Trigger.CLICKED, this.whenthisspriteclicked),
     ];
   }
 
   *whenGreenFlagClicked() {
     this.goto(0, -100);
     this.visible = true;
-    
   }
 
   *whenthisspriteclicked() {
@@ -41,7 +40,7 @@ export default class Playbutton extends Sprite {
     this.broadcast("NewCustomer");
   }
 
-  *whenthisspriteclicked(){
+  *whenthisspriteclicked() {
     this.stage.vars.timeremaining = 120;
     this.broadcast("StartGame");
     this.visible = false;
@@ -55,6 +54,5 @@ export default class Playbutton extends Sprite {
     this.visible = false;
     this.stage.costume = "GameOver";
     return;
-    }  
-
+  }
 }

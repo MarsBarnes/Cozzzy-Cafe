@@ -34,7 +34,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 100
+    layerOrder: 100,
   }),
   Bubbleteacup: new Bubbleteacup({
     x: 90,
@@ -43,7 +43,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: true,
-    layerOrder: 105
+    layerOrder: 105,
   }),
   Bubblewaterglass: new Bubblewaterglass({
     x: -194,
@@ -52,7 +52,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 110
+    layerOrder: 110,
   }),
   Blankspeechbubble: new Blankspeechbubble({
     x: 90,
@@ -61,7 +61,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: true,
-    layerOrder: 85
+    layerOrder: 85,
   }),
   Money: new Money({
     x: 100,
@@ -70,7 +70,7 @@ const sprites = {
     costumeNumber: 1,
     size: 150,
     visible: false,
-    layerOrder: 80
+    layerOrder: 80,
   }),
   Coffeemug2: new Coffeemug2({
     x: -48,
@@ -79,7 +79,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 50
+    layerOrder: 50,
   }),
   Teacup2: new Teacup2({
     x: -175,
@@ -88,7 +88,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 55
+    layerOrder: 55,
   }),
   Waterglass2: new Waterglass2({
     x: -100,
@@ -97,7 +97,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 60
+    layerOrder: 60,
   }),
   Tray: new Tray({
     x: 17,
@@ -106,7 +106,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: true,
-    layerOrder: 45
+    layerOrder: 45,
   }),
   Drinkmakers: new Drinkmakers({
     x: 130,
@@ -115,7 +115,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 95
+    layerOrder: 95,
   }),
   Coffee: new Coffee({
     x: 180,
@@ -124,7 +124,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 65
+    layerOrder: 65,
   }),
   Tea: new Tea({
     x: 4,
@@ -133,7 +133,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 70
+    layerOrder: 70,
   }),
   Water: new Water({
     x: 111,
@@ -142,7 +142,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 75
+    layerOrder: 75,
   }),
   Playbutton: new Playbutton({
     x: 0,
@@ -151,7 +151,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 5
+    layerOrder: 5,
   }),
   Placemat1: new Placemat1({
     x: -292,
@@ -160,7 +160,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: true,
-    layerOrder: 30
+    layerOrder: 30,
   }),
   Placemat2: new Placemat2({
     x: -139,
@@ -169,7 +169,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: true,
-    layerOrder: 35
+    layerOrder: 35,
   }),
   Placemat3: new Placemat3({
     x: 14,
@@ -178,7 +178,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: true,
-    layerOrder: 40
+    layerOrder: 40,
   }),
   Bar: new Bar({
     x: 0,
@@ -187,7 +187,7 @@ const sprites = {
     costumeNumber: 1,
     size: 150,
     visible: true,
-    layerOrder: 20
+    layerOrder: 20,
   }),
   Kitchenbar: new Kitchenbar({
     x: 0,
@@ -196,7 +196,7 @@ const sprites = {
     costumeNumber: 1,
     size: 150,
     visible: false,
-    layerOrder: 25
+    layerOrder: 25,
   }),
   Barista: new Barista({
     x: 17,
@@ -205,7 +205,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: true,
-    layerOrder: 10
+    layerOrder: 10,
   }),
   Customer: new Customer({
     x: 90,
@@ -214,7 +214,7 @@ const sprites = {
     costumeNumber: 2,
     size: 100,
     visible: true,
-    layerOrder: 90
+    layerOrder: 90,
   }),
   Baristaspeech: new Baristaspeech({
     x: 40,
@@ -223,11 +223,11 @@ const sprites = {
     costumeNumber: 2,
     size: 100,
     visible: false,
-    layerOrder: 15
-  })
+    layerOrder: 15,
+  }),
 };
 
 const project = new Project(stage, sprites, {
-  frameRate: 60 // Set to 60 to make your project run faster
+  frameRate: 60, // Set to 60 to make your project run faster
 });
 export default project;

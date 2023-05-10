@@ -6,12 +6,10 @@ import {
   Watcher,
   Costume,
   Color,
-  Sound
+  Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
-import{
-  sFunction2
-} from "../globalFunctionsIWrote.js";
+import { sFunction2 } from "../globalFunctionsIWrote.js";
 
 export default class Tea extends Sprite {
   constructor(...args) {
@@ -44,7 +42,7 @@ export default class Tea extends Sprite {
       new Costume("Tea23", "./Tea/costumes/Tea23.png", { x: 27, y: 38 }),
       new Costume("Tea24", "./Tea/costumes/Tea24.png", { x: 27, y: 30 }),
       new Costume("Tea25", "./Tea/costumes/Tea25.png", { x: 19, y: 16 }),
-      new Costume("Tea26", "./Tea/costumes/Tea26.png", { x: 11, y: 10 })
+      new Costume("Tea26", "./Tea/costumes/Tea26.png", { x: 11, y: 10 }),
     ];
 
     this.sounds = [];
@@ -62,7 +60,7 @@ export default class Tea extends Sprite {
         { key: "space" },
         this.whenKeySpacePressed
       ),
-      new Trigger(Trigger.KEY_PRESSED, { key: "s" }, this.whenKeySPressed)
+      new Trigger(Trigger.KEY_PRESSED, { key: "s" }, this.whenKeySPressed),
     ];
 
     this.vars.ontray = 0;
@@ -73,13 +71,12 @@ export default class Tea extends Sprite {
       visible: false,
       value: () => this.vars.ontray,
       x: 388,
-      y: -49
+      y: -49,
     });
   }
 
   *whenGreenFlagClicked() {
     this.visible = false;
-    
   }
 
   *whenIReceiveStartgame() {
@@ -92,7 +89,7 @@ export default class Tea extends Sprite {
       if (this.stage.costume.name === "Kitchen") {
         this.visible = true;
       }
-      if  (this.stage.costume.name === "GameOver") {
+      if (this.stage.costume.name === "GameOver") {
         this.visible = false;
       }
       if (
@@ -139,10 +136,9 @@ export default class Tea extends Sprite {
   //   }
   // }
 
-  *whenKeySPressed(){
-    yield* sFunction2(this, 4, -15, "Tea0" );
+  *whenKeySPressed() {
+    yield* sFunction2(this, 4, -15, "Tea0");
   }
-
 
   *whenKeySpacePressed() {
     if (
@@ -163,5 +159,4 @@ export default class Tea extends Sprite {
       }
     }
   }
-
 }

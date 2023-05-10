@@ -6,12 +6,10 @@ import {
   Watcher,
   Costume,
   Color,
-  Sound
+  Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
-import{
-  sFunction2
-} from "../globalFunctionsIWrote.js";
+import { sFunction2 } from "../globalFunctionsIWrote.js";
 
 export default class Coffee extends Sprite {
   constructor(...args) {
@@ -30,44 +28,44 @@ export default class Coffee extends Sprite {
       new Costume("Coffee9", "./Coffee/costumes/Coffee9.png", { x: 91, y: 76 }),
       new Costume("Coffee10", "./Coffee/costumes/Coffee10.png", {
         x: 99,
-        y: 88
+        y: 88,
       }),
       new Costume("Coffee11", "./Coffee/costumes/Coffee11.png", {
         x: 99,
-        y: 88
+        y: 88,
       }),
       new Costume("Coffee12", "./Coffee/costumes/Coffee12.png", {
         x: 99,
-        y: 88
+        y: 88,
       }),
       new Costume("Coffee13", "./Coffee/costumes/Coffee13.png", {
         x: 99,
-        y: 88
+        y: 88,
       }),
       new Costume("Coffee14", "./Coffee/costumes/Coffee14.png", {
         x: 69,
-        y: 76
+        y: 76,
       }),
       new Costume("Coffee15", "./Coffee/costumes/Coffee15.png", {
         x: 67,
-        y: 76
+        y: 76,
       }),
       new Costume("Coffee16", "./Coffee/costumes/Coffee16.png", {
         x: 63,
-        y: 56
+        y: 56,
       }),
       new Costume("Coffee17", "./Coffee/costumes/Coffee17.png", {
         x: 53,
-        y: 46
+        y: 46,
       }),
       new Costume("Coffee18", "./Coffee/costumes/Coffee18.png", {
         x: 27,
-        y: 30
+        y: 30,
       }),
       new Costume("Coffee19", "./Coffee/costumes/Coffee19.png", {
         x: 25,
-        y: 18
-      })
+        y: 18,
+      }),
     ];
 
     this.sounds = [];
@@ -85,8 +83,7 @@ export default class Coffee extends Sprite {
         this.whenIReceiveStartgame
       ),
       // new Trigger(Trigger.CLICKED, this.whenthisspriteclicked)
-      new Trigger(Trigger.KEY_PRESSED, { key: "s" }, this.whenKeySPressed)
-
+      new Trigger(Trigger.KEY_PRESSED, { key: "s" }, this.whenKeySPressed),
     ];
 
     this.vars.ontray = 0;
@@ -97,13 +94,12 @@ export default class Coffee extends Sprite {
       visible: false,
       value: () => this.vars.ontray,
       x: 559,
-      y: -103
+      y: -103,
     });
   }
 
   *whenGreenFlagClicked() {
     this.visible = false;
-    
   }
 
   *whenKeySpacePressed() {
@@ -136,7 +132,7 @@ export default class Coffee extends Sprite {
       if (this.stage.costume.name === "Kitchen") {
         this.visible = true;
       }
-      if  (this.stage.costume.name === "GameOver") {
+      if (this.stage.costume.name === "GameOver") {
         this.visible = false;
       }
       if (
@@ -160,8 +156,8 @@ export default class Coffee extends Sprite {
       yield;
     }
   }
-  *whenKeySPressed(){
-    yield* sFunction2(this, 180, 1, "Coffee0" );
+  *whenKeySPressed() {
+    yield* sFunction2(this, 180, 1, "Coffee0");
   }
 
   // *whenthisspriteclicked() {
@@ -185,5 +181,4 @@ export default class Coffee extends Sprite {
   //     this.stage.vars.vesselslot = 1;
   //   }
   // }
-
 }

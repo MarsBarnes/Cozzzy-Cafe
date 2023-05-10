@@ -6,7 +6,7 @@ import {
   Watcher,
   Costume,
   Color,
-  Sound
+  Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
 export default class Kitchenbar extends Sprite {
@@ -16,8 +16,8 @@ export default class Kitchenbar extends Sprite {
     this.costumes = [
       new Costume("KitchenBar", "./Kitchenbar/costumes/KitchenBar.png", {
         x: 320,
-        y: 180
-      })
+        y: 180,
+      }),
     ];
 
     this.sounds = [];
@@ -28,13 +28,12 @@ export default class Kitchenbar extends Sprite {
         Trigger.BROADCAST,
         { name: "StartGame" },
         this.whenIReceiveStartgame
-      )
+      ),
     ];
   }
 
   *whenGreenFlagClicked() {
     this.visible = false;
-    
   }
 
   *whenIReceiveStartgame() {
@@ -47,11 +46,10 @@ export default class Kitchenbar extends Sprite {
       if (this.stage.costume.name === "Kitchen") {
         this.visible = true;
       }
-      if  (this.stage.costume.name === "GameOver") {
+      if (this.stage.costume.name === "GameOver") {
         this.visible = false;
       }
       yield;
     }
   }
-
 }

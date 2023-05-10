@@ -6,7 +6,7 @@ import {
   Watcher,
   Costume,
   Color,
-  Sound
+  Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
 export default class Baristaspeech extends Sprite {
@@ -16,13 +16,13 @@ export default class Baristaspeech extends Sprite {
     this.costumes = [
       new Costume("Welcome", "./Baristaspeech/costumes/Welcome.svg", {
         x: 66.25,
-        y: 135.855265
+        y: 135.855265,
       }),
       new Costume(
         "DrinkQuestion",
         "./Baristaspeech/costumes/DrinkQuestion.svg",
         { x: 66.25, y: 135.855265 }
-      )
+      ),
     ];
 
     this.sounds = [new Sound("pop", "./Baristaspeech/sounds/pop.wav")];
@@ -33,13 +33,12 @@ export default class Baristaspeech extends Sprite {
         { name: "StartGame" },
         this.whenIReceiveStartgame
       ),
-      new Trigger(Trigger.GREEN_FLAG, this.whenGreenFlagClicked)
+      new Trigger(Trigger.GREEN_FLAG, this.whenGreenFlagClicked),
     ];
   }
 
   *whenIReceiveStartgame() {
-    
-    this.goto(40, 40);
+    this.goto(45, 10);
     this.costume = "Welcome";
     this.visible = true;
     yield* this.wait(2);
@@ -53,19 +52,17 @@ export default class Baristaspeech extends Sprite {
 
   *whenGreenFlagClicked() {
     this.visible = false;
-      while (true) {
+    while (true) {
       if (
-        this.stage.costume.name === "Kitchen" || this.stage.costume.name === "CozzzyCafe"
+        this.stage.costume.name === "Kitchen" ||
+        this.stage.costume.name === "CozzzyCafe"
       ) {
         this.visible = false;
       }
-      if  (this.stage.costume.name === "GameOver") {
+      if (this.stage.costume.name === "GameOver") {
         this.visible = false;
       }
       yield;
     }
   }
-
-
-
 }

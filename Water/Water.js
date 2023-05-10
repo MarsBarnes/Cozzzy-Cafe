@@ -6,12 +6,10 @@ import {
   Watcher,
   Costume,
   Color,
-  Sound
+  Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
-import{
-  sFunction2
-} from "../globalFunctionsIWrote.js";
+import { sFunction2 } from "../globalFunctionsIWrote.js";
 
 export default class Water extends Sprite {
   constructor(...args) {
@@ -40,7 +38,7 @@ export default class Water extends Sprite {
       new Costume("Water19", "./Water/costumes/Water19.png", { x: 52, y: 54 }),
       new Costume("Water20", "./Water/costumes/Water20.png", { x: 52, y: 44 }),
       new Costume("Water21", "./Water/costumes/Water21.png", { x: 40, y: 40 }),
-      new Costume("Water22", "./Water/costumes/Water22.png", { x: 30, y: 26 })
+      new Costume("Water22", "./Water/costumes/Water22.png", { x: 30, y: 26 }),
     ];
 
     this.sounds = [];
@@ -58,8 +56,7 @@ export default class Water extends Sprite {
         this.whenIReceiveStartgame
       ),
       // new Trigger(Trigger.CLICKED, this.whenthisspriteclicked),
-      new Trigger(Trigger.KEY_PRESSED, { key: "s" }, this.whenKeySPressed)
-
+      new Trigger(Trigger.KEY_PRESSED, { key: "s" }, this.whenKeySPressed),
     ];
 
     this.vars.ontray = 0;
@@ -70,7 +67,7 @@ export default class Water extends Sprite {
       visible: false,
       value: () => this.vars.ontray,
       x: 464,
-      y: -74
+      y: -74,
     });
   }
 
@@ -96,7 +93,6 @@ export default class Water extends Sprite {
 
   *whenGreenFlagClicked() {
     this.visible = false;
-    
   }
 
   *whenIReceiveStartgame() {
@@ -106,7 +102,7 @@ export default class Water extends Sprite {
     this.goto(111, 1);
     this.visible = false;
     while (true) {
-      if  (this.stage.costume.name === "GameOver") {
+      if (this.stage.costume.name === "GameOver") {
         this.visible = false;
       }
       if (this.stage.costume.name === "Kitchen") {
@@ -133,8 +129,8 @@ export default class Water extends Sprite {
       yield;
     }
   }
-  *whenKeySPressed(){
-    yield* sFunction2(this, 111, 1, "Water0" );
+  *whenKeySPressed() {
+    yield* sFunction2(this, 111, 1, "Water0");
   }
 
   // *whenthisspriteclicked() {
@@ -158,5 +154,4 @@ export default class Water extends Sprite {
   //     this.stage.vars.vesselslot = 1;
   //   }
   // }
-
 }

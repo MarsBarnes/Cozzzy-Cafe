@@ -6,7 +6,7 @@ import {
   Watcher,
   Costume,
   Color,
-  Sound
+  Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
 export default class Drinkmakers extends Sprite {
@@ -16,8 +16,8 @@ export default class Drinkmakers extends Sprite {
     this.costumes = [
       new Costume("DrinkMakers", "./Drinkmakers/costumes/DrinkMakers.png", {
         x: 246,
-        y: 101
-      })
+        y: 101,
+      }),
     ];
 
     this.sounds = [];
@@ -28,13 +28,12 @@ export default class Drinkmakers extends Sprite {
         Trigger.BROADCAST,
         { name: "StartGame" },
         this.whenIReceiveStartgame
-      )
+      ),
     ];
   }
 
   *whenGreenFlagClicked() {
     this.visible = false;
-    
   }
 
   *whenIReceiveStartgame() {
@@ -46,11 +45,10 @@ export default class Drinkmakers extends Sprite {
       if (this.stage.costume.name === "Kitchen") {
         this.visible = true;
       }
-      if  (this.stage.costume.name === "GameOver") {
+      if (this.stage.costume.name === "GameOver") {
         this.visible = false;
       }
       yield;
     }
   }
-
 }

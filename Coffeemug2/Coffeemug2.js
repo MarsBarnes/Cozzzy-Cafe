@@ -6,12 +6,10 @@ import {
   Watcher,
   Costume,
   Color,
-  Sound
+  Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
-import{
-  sFunction
-} from "../globalFunctionsIWrote.js";
+import { sFunction } from "../globalFunctionsIWrote.js";
 
 export default class Coffeemug2 extends Sprite {
   constructor(...args) {
@@ -20,12 +18,12 @@ export default class Coffeemug2 extends Sprite {
     this.costumes = [
       new Costume("EmptyMug", "./Coffeemug2/costumes/EmptyMug.png", {
         x: 28,
-        y: 30
+        y: 30,
       }),
       new Costume("FullMug", "./Coffeemug2/costumes/FullMug.svg", {
         x: 14,
-        y: 15
-      })
+        y: 15,
+      }),
     ];
 
     this.sounds = [];
@@ -42,7 +40,7 @@ export default class Coffeemug2 extends Sprite {
         { name: "PourComplete" },
         this.whenIReceivePourcomplete
       ),
-      new Trigger(Trigger.KEY_PRESSED, { key: "s" }, this.whenKeySPressed)
+      new Trigger(Trigger.KEY_PRESSED, { key: "s" }, this.whenKeySPressed),
     ];
 
     this.vars.ontray = 0;
@@ -53,14 +51,13 @@ export default class Coffeemug2 extends Sprite {
       visible: false,
       value: () => this.vars.ontray,
       x: 489,
-      y: 169
+      y: 169,
     });
   }
 
   *whenGreenFlagClicked() {
     this.costume = "EmptyMug";
     this.visible = false;
-    
   }
 
   *whenIReceiveStartgame() {
@@ -70,7 +67,7 @@ export default class Coffeemug2 extends Sprite {
     this.goto(-48, 150);
     this.visible = false;
     while (true) {
-      if  (this.stage.costume.name === "GameOver") {
+      if (this.stage.costume.name === "GameOver") {
         this.visible = false;
       }
       if (
@@ -110,10 +107,10 @@ export default class Coffeemug2 extends Sprite {
     }
   }
 
-  *whenKeySPressed(){
-      yield* sFunction(this, "coffeemugx",  "mugontray", -48, 150, "FullMug", 1);
+  *whenKeySPressed() {
+    yield* sFunction(this, "coffeemugx", "mugontray", -48, 150, "FullMug", 1);
   }
-  
+
   *whenIReceivePourcomplete() {
     if (this.toNumber(this.vars.ontray) === 1) {
       this.costume = "FullMug";
@@ -125,7 +122,7 @@ export default class Coffeemug2 extends Sprite {
     if (
       this.toNumber(this.stage.vars.seatnumber) === 1 &&
       this.compare(numberOrText, -105) < 0 &&
-        this.compare(numberOrText, -250) > 0
+      this.compare(numberOrText, -250) > 0
     ) {
       this.broadcast("OrderComplete");
       this.costume = "EmptyMug";
@@ -136,7 +133,8 @@ export default class Coffeemug2 extends Sprite {
     }
     if (
       this.toNumber(this.stage.vars.seatnumber) === 2 &&
-      this.compare(numberOrText, 47) < 0 && this.compare(numberOrText, -106) > 0
+      this.compare(numberOrText, 47) < 0 &&
+      this.compare(numberOrText, -106) > 0
     ) {
       this.broadcast("OrderComplete");
       this.costume = "EmptyMug";
@@ -147,7 +145,8 @@ export default class Coffeemug2 extends Sprite {
     }
     if (
       this.toNumber(this.stage.vars.seatnumber) === 3 &&
-      this.compare(numberOrText, 200) < 0 && this.compare(numberOrText, 48) > 0
+      this.compare(numberOrText, 200) < 0 &&
+      this.compare(numberOrText, 48) > 0
     ) {
       this.broadcast("OrderComplete");
       this.costume = "EmptyMug";
@@ -157,5 +156,4 @@ export default class Coffeemug2 extends Sprite {
       this.visible = false;
     }
   }
-
 }

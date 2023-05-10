@@ -6,7 +6,7 @@ import {
   Watcher,
   Costume,
   Color,
-  Sound
+  Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
 export default class Bar extends Sprite {
@@ -14,7 +14,7 @@ export default class Bar extends Sprite {
     super(...args);
 
     this.costumes = [
-      new Costume("Bar", "./Bar/costumes/Bar.png", { x: 320, y: 51 })
+      new Costume("Bar", "./Bar/costumes/Bar.png", { x: 320, y: 51 }),
     ];
 
     this.sounds = [];
@@ -26,13 +26,12 @@ export default class Bar extends Sprite {
         { name: "StartGame" },
         this.whenIReceiveStartgame
       ),
-      new Trigger(Trigger.GREEN_FLAG, this.whenGreenFlagClicked2)
+      new Trigger(Trigger.GREEN_FLAG, this.whenGreenFlagClicked2),
     ];
   }
 
   *whenGreenFlagClicked() {
     this.visible = false;
-    
   }
 
   *whenIReceiveStartgame() {
@@ -44,13 +43,12 @@ export default class Bar extends Sprite {
       if (this.stage.costume.name === "Bar") {
         this.visible = true;
       }
-      if  (this.stage.costume.name === "GameOver") {
+      if (this.stage.costume.name === "GameOver") {
         this.visible = false;
       }
       yield;
     }
   }
-
 
   *whenGreenFlagClicked2() {
     this.visible = false;
