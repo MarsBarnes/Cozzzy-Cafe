@@ -72,6 +72,9 @@ export default class Teacup2 extends Sprite {
     this.goto(-175, 146);
     this.visible = false;
     while (true) {
+      if  (this.stage.costume.name === "GameOver") {
+        this.visible = false;
+      }
       if (
         this.stage.costume.name === "Kitchen" &&
         (this.toNumber(this.vars.ontray) === 0 ||

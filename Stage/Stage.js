@@ -22,7 +22,8 @@ export default class Stage extends StageBase {
       new Costume("CozzzyCafe", "./Stage/costumes/CozzzyCafe.png", {
         x: 480,
         y: 360
-      })
+      }),
+      new Costume("GameOver", "./Stage/costumes/GameOver.png", { x: 480, y: 360 })
     ];
 
     this.sounds = [new Sound("pop", "./Stage/sounds/pop.wav")];
@@ -48,6 +49,7 @@ export default class Stage extends StageBase {
     this.vars.teacupvolume = 0;
     this.vars.coffeemugvolume = 0;
     this.vars.waterglassvolume = 0;
+    this.vars.timeremaining = 0;
 
     this.watchers.baristalocation = new Watcher({
       label: "BaristaLocation",
@@ -137,6 +139,14 @@ export default class Stage extends StageBase {
       x: 246,
       y: -158
     });
+    this.watchers.timeremaining = new Watcher({
+      label: "TimeRemaining",
+      style: "normal",
+      visible: true,
+      value: () => this.vars.timeremaining,
+      x: 245,
+      y: 175
+    });
   }
 
   *whenGreenFlagClicked() {
@@ -163,5 +173,6 @@ export default class Stage extends StageBase {
     this.watchers.randomdrinknumber.visible = false;
     this.watchers.seatnumber.visible = false;
     this.watchers.traylocation.visible = false;
+    this.watchers.timeremaining.visible = true;
   }
 }

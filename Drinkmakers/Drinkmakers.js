@@ -45,7 +45,9 @@ export default class Drinkmakers extends Sprite {
       }
       if (this.stage.costume.name === "Kitchen") {
         this.visible = true;
-        
+      }
+      if  (this.stage.costume.name === "GameOver") {
+        this.visible = false;
       }
       yield;
     }

@@ -39,10 +39,10 @@ export default class Bubbleteacup extends Sprite {
 
   *whenGreenFlagClicked() {
     this.visible = false;
-    
+
   }
 
-  *whenIReceiveOrdercomplete() {}
+  *whenIReceiveOrdercomplete() { }
 
 
   *whenIReceiveNewcustomer() {
@@ -54,7 +54,7 @@ export default class Bubbleteacup extends Sprite {
       this.visible = true;
     }
     while (true) {
-      if (
+      if (this.stage.costume.name !== "GameOver" &&
         this.stage.costume.name === "Bar" &&
         this.toNumber(this.stage.vars.randomdrinknumber) === 2 &&
         (this.toNumber(this.stage.vars.customerlocation) === -194 ||
@@ -62,8 +62,9 @@ export default class Bubbleteacup extends Sprite {
           this.toNumber(this.stage.vars.customerlocation) === 90)
       ) {
         this.visible = true;
-        
-      } else {
+      }
+      
+     else {
         this.visible = false;
       }
       yield;

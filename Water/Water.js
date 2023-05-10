@@ -106,6 +106,9 @@ export default class Water extends Sprite {
     this.goto(111, 1);
     this.visible = false;
     while (true) {
+      if  (this.stage.costume.name === "GameOver") {
+        this.visible = false;
+      }
       if (this.stage.costume.name === "Kitchen") {
         this.visible = true;
       }

@@ -40,6 +40,9 @@ export default class Tray extends Sprite {
       if (!(this.toNumber(undefined) === 5)) {
         
       }
+      if  (this.stage.costume.name === "GameOver") {
+        this.visible = false;
+      }
       yield;
     }
   }

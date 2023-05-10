@@ -43,7 +43,9 @@ export default class Bar extends Sprite {
       }
       if (this.stage.costume.name === "Bar") {
         this.visible = true;
-        
+      }
+      if  (this.stage.costume.name === "GameOver") {
+        this.visible = false;
       }
       yield;
     }

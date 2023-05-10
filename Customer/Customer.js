@@ -94,6 +94,14 @@ export default class Customer extends Sprite {
     //     yield;
     //   }
   // }
+  while(true) {
+    if  (this.stage.costume.name === "GameOver") {
+      this.visible = false;
+    }    if  (this.stage.costume.name === "Bar") {
+      this.visible = true;
+    }
+    yield
+  }
     }
   
 

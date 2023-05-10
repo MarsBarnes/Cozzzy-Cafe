@@ -54,7 +54,7 @@ export default class Bubblewaterglass extends Sprite {
       this.visible = true;
     }
     while (true) {
-      if (
+      if (this.stage.costume.name !== "GameOver" &&
         this.stage.costume.name === "Bar" &&
         this.toNumber(this.stage.vars.randomdrinknumber) === 3 &&
         (this.toNumber(this.stage.vars.customerlocation) === -194 ||
@@ -63,7 +63,8 @@ export default class Bubblewaterglass extends Sprite {
       ) {
         this.visible = true;
         
-      } else {
+      } 
+      else {
         this.visible = false;
       }
       yield;

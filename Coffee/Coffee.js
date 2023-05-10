@@ -136,6 +136,9 @@ export default class Coffee extends Sprite {
       if (this.stage.costume.name === "Kitchen") {
         this.visible = true;
       }
+      if  (this.stage.costume.name === "GameOver") {
+        this.visible = false;
+      }
       if (
         this.stage.costume.name === "Bar" &&
         this.toNumber(this.vars.ontray) === 1

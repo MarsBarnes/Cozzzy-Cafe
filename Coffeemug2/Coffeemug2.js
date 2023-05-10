@@ -70,6 +70,9 @@ export default class Coffeemug2 extends Sprite {
     this.goto(-48, 150);
     this.visible = false;
     while (true) {
+      if  (this.stage.costume.name === "GameOver") {
+        this.visible = false;
+      }
       if (
         this.stage.costume.name === "Kitchen" &&
         (this.toNumber(this.vars.ontray) === 0 ||

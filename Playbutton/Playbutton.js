@@ -41,4 +41,20 @@ export default class Playbutton extends Sprite {
     this.broadcast("NewCustomer");
   }
 
+  *whenthisspriteclicked(){
+    this.stage.vars.timeremaining = 120;
+    this.broadcast("StartGame");
+    this.visible = false;
+    this.stage.costume = "Bar";
+    this.broadcast("NewCustomer");
+    for (let i = 0; i < 120; i++) {
+      yield* this.wait(1);
+      this.stage.vars.timeremaining--;
+      yield;
+    }
+    this.visible = false;
+    this.stage.costume = "GameOver";
+    return;
+    }  
+
 }

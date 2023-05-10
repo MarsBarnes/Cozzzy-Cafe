@@ -42,6 +42,9 @@ export default class Placemat2 extends Sprite {
         
         this.visible = true;
       }
+      if  (this.stage.costume.name === "GameOver") {
+        this.visible = false;
+      }
       yield;
     }
   }

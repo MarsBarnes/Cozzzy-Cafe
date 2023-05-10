@@ -85,7 +85,9 @@ export default class Barista extends Sprite {
     this.goto(175, -4);
     this.visible = true;
     while (true) {
-      
+      if  (this.stage.costume.name === "GameOver") {
+        this.visible = false;
+      }
       yield;
     }
   }

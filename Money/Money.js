@@ -49,6 +49,9 @@ export default class Money extends Sprite {
       if (this.stage.costume.name === "Kitchen") {
         this.visible = false;
       }
+      if  (this.stage.costume.name === "GameOver") {
+        this.visible = false;
+      }
       if(this.stage.costume.name === "Bar" && this.y > 90) {
         this.visible = false;
       }

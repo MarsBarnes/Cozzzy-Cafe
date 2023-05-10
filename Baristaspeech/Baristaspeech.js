@@ -59,6 +59,9 @@ export default class Baristaspeech extends Sprite {
       ) {
         this.visible = false;
       }
+      if  (this.stage.costume.name === "GameOver") {
+        this.visible = false;
+      }
       yield;
     }
   }

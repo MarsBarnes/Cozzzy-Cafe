@@ -76,6 +76,9 @@ export default class Waterglass2 extends Sprite {
     this.goto(-110, 154);
     this.visible = false;
     while (true) {
+      if  (this.stage.costume.name === "GameOver") {
+        this.visible = false;
+      }
       if (
         this.stage.costume.name === "Kitchen" &&
         (this.toNumber(this.vars.ontray) === 0 ||

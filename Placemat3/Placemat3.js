@@ -39,17 +39,18 @@ export default class Placemat3 extends Sprite {
         this.visible = false;
       }
       if (this.stage.costume.name === "Bar") {
-        yield;
+        // yield;
         this.visible = true;
       }
+      if  (this.stage.costume.name === "GameOver") {
+        this.visible = false;
+      }
       yield;
-    }
   }
 
+}
   *whenGreenFlagClicked() {
     this.visible = false;
-    
   }
-
 
 }

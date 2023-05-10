@@ -41,6 +41,7 @@ export default class Blankspeechbubble extends Sprite {
 
   *whenIReceiveNewcustomer() {
     this.visible = false;
+    // this.stage.vars.randomdrinknumber = 3;
     this.stage.vars.randomdrinknumber = this.random(1, 3);
     yield* this.wait(8);
     this.goto(this.sprites["Customer"].x, this.sprites["Customer"].y);
@@ -48,6 +49,7 @@ export default class Blankspeechbubble extends Sprite {
     this.visible = true;
     while (true) {
       if (
+        this.stage.costume.name !== "GameOver" &&
         this.stage.costume.name === "Bar" &&
         (this.toNumber(this.stage.vars.customerlocation) === -194 ||
           this.toNumber(this.stage.vars.customerlocation) === -51 ||
