@@ -14,7 +14,7 @@ export default class Placemat1 extends Sprite {
     super(...args);
 
     this.costumes = [
-      new Costume("Placemat", "./Placemat1/costumes/Placemat.svg", {
+      new Costume("Placemat", "./Placemat1/costumes/Placemat.png", {
         x: -38.5,
         y: -3,
       }),
@@ -33,7 +33,7 @@ export default class Placemat1 extends Sprite {
   }
 
   *whenIReceiveStartgame() {
-    this.goto(-292, -15);
+    this.goto(-247, -17);
     while (true) {
       if (this.stage.costume.name === "Kitchen") {
         this.visible = false;
