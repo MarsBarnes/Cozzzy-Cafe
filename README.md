@@ -1,5 +1,5 @@
 # Welcome to Cozzy Cafe! ☕
-#### Video Demo:  <URL HERE>
+#### Video Demo: https://youtu.be/IXk2807FTf4
 #### Play Here: https://abigail125.github.io/Cozzzy-Cafe/
 
 Embrace your inner barista in my delightfully engaging and visually stunning pixel-art game, Cozzy Cafe. This immersive cafe simulation is an elegantly coded masterpiece, built to serve you a refreshing blend of entertainment and nostalgia.
