@@ -1,3 +1,31 @@
 body {
   background-color: rgb(49, 49, 49);
+  margin: 0 auto;
+  display: grid;
+  justify-items: center;
+}
+
+table {
+  display: flex;
+  border: 20px;
+  border-collapse: collapse;
+  margin: 20px;
+  color: white;
+  background-color: #203153;
+
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+#greenFlag {
+  height: 30px;
+  margin: 20px;
+  color: white;
+  background-color: #203153;
 }
