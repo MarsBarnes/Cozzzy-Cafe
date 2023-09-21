@@ -1,5 +1,3 @@
-/* eslint-disable require-yield, eqeqeq */
-
 import {
   Sprite,
   Trigger,
@@ -133,12 +131,6 @@ export default class Teacup2 extends Sprite {
       this.compare(numberOrText, -105) < 0 &&
       this.compare(numberOrText, -250) > 0
     ) {
-      // yield* this.wait(2);
-      // yield* this.glide(
-      //   1,
-      //   this.sprites["Customer"].x,
-      //   this.sprites["Customer"].y
-      // );
       this.broadcast("OrderComplete");
       this.costume = "EmptyTeaCup";
       this.stage.vars.teacupvolume = 0;
@@ -151,12 +143,6 @@ export default class Teacup2 extends Sprite {
       this.compare(numberOrText, 47) < 0 &&
       this.compare(numberOrText, -106) > 0
     ) {
-      // yield* this.wait(2);
-      // yield* this.glide(
-      //   1,
-      //   this.sprites["Customer"].x,
-      //   this.sprites["Customer"].y
-      // );
       this.broadcast("OrderComplete");
       this.costume = "EmptyTeaCup";
       this.stage.vars.teacupvolume = 0;
@@ -169,12 +155,6 @@ export default class Teacup2 extends Sprite {
       this.compare(numberOrText, 200) < 0 &&
       this.compare(numberOrText, 48) > 0
     ) {
-      // yield* this.wait(2);
-      // yield* this.glide(
-      //   1,
-      //   this.sprites["Customer"].x,
-      //   this.sprites["Customer"].y
-      // );
       this.broadcast("OrderComplete");
       this.costume = "EmptyTeaCup";
       this.stage.vars.teacupvolume = 0;

@@ -1,5 +1,3 @@
-/* eslint-disable require-yield, eqeqeq */
-
 import {
   Sprite,
   Trigger,
@@ -79,13 +77,6 @@ export default class Customer extends Sprite {
 
   *whenGreenFlagClicked() {
     this.visible = false;
-    // this.costume = "CustomerStanding";
-    // if(customerlocation !== 175 && customerlocation !== -194 && customerlocation !== -51 && customerlocation !== 90 && customerlocation !== 174){
-    //   for (let i = 0; i < 4; i++) {
-    //     this.costumeNumber++;
-    //     yield;
-    //   }
-    // }
     while (true) {
       if (this.stage.costume.name === "GameOver") {
         this.visible = false;

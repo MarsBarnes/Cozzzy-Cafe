@@ -1,5 +1,3 @@
-/* eslint-disable require-yield, eqeqeq */
-
 import {
   Sprite,
   Trigger,
@@ -160,25 +158,4 @@ export default class Coffee extends Sprite {
     yield* sFunction2(this, 180, 1, "Coffee0");
   }
 
-  // *whenthisspriteclicked() {
-  //   if (
-  //     this.stage.costume.name === "Kitchen" &&
-  //     this.toNumber(this.stage.vars.vesselslot) === 1 &&
-  //       this.toNumber(this.vars.ontray) === 1
-  //   ) {
-  //     this.stage.vars.vesselslot = 0;
-  //     this.vars.ontray = 0;
-  //     this.goto(180, 1);
-  //     return;
-  //   }
-  //   if (
-  //     this.toNumber(this.stage.vars.vesselslot) === 1 &&
-  //     this.toNumber(this.vars.ontray) === 0
-  //   ) {
-  //     return;
-  //   } else {
-  //     this.vars.ontray = 1;
-  //     this.stage.vars.vesselslot = 1;
-  //   }
-  // }
 }

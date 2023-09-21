@@ -1,5 +1,3 @@
-/* eslint-disable require-yield, eqeqeq */
-
 /* OnTray variable key:   0. In Cabinet     1.OnTray    2. On Bar */
 
 import {
@@ -138,12 +136,6 @@ export default class Waterglass2 extends Sprite {
       this.compare(numberOrText, -250) > 0
     ) {
       this.broadcast("OrderComplete");
-      // yield* this.wait(2);
-      // yield* this.glide(
-      //   1,
-      //   this.sprites["Customer"].x,
-      //   this.sprites["Customer"].y
-      // );
       this.costume = "EmptyWaterGlass";
       this.stage.vars.waterglassvolume = 0;
       this.goto(-110, 154);
@@ -156,12 +148,6 @@ export default class Waterglass2 extends Sprite {
       this.compare(numberOrText, -106) > 0
     ) {
       this.broadcast("OrderComplete");
-      // yield* this.wait(2);
-      // yield* this.glide(
-      //   1,
-      //   this.sprites["Customer"].x,
-      //   this.sprites["Customer"].y
-      // );
       this.costume = "EmptyWaterGlass";
       this.stage.vars.waterglassvolume = 0;
       this.goto(-110, 154);
@@ -174,12 +160,6 @@ export default class Waterglass2 extends Sprite {
       this.compare(numberOrText, 48) > 0
     ) {
       this.broadcast("OrderComplete");
-      // yield* this.wait(2);
-      // yield* this.glide(
-      //   1,
-      //   this.sprites["Customer"].x,
-      //   this.sprites["Customer"].y
-      // );
       this.costume = "EmptyWaterGlass";
       this.stage.vars.waterglassvolume = 0;
       this.goto(-110, 154);

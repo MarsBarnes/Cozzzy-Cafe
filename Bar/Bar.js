@@ -1,5 +1,3 @@
-/* eslint-disable require-yield, eqeqeq */
-
 import {
   Sprite,
   Trigger,

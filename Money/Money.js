@@ -1,5 +1,3 @@
-/* eslint-disable require-yield, eqeqeq */
-
 import {
   Sprite,
   Trigger,
@@ -31,7 +29,6 @@ export default class Money extends Sprite {
         { name: "OrderComplete" },
         this.whenIReceiveOrdercomplete
       ),
-      // new Trigger(Trigger.CLICKED, this.whenthisspriteclicked),
       new Trigger(
         Trigger.BROADCAST,
         { name: "StartGame" },
@@ -56,36 +53,22 @@ export default class Money extends Sprite {
       if (this.stage.costume.name === "Bar" && this.y < 90) {
         this.visible = true;
       }
-      //need to define  new varibale here to keep track of money location
-      // moneyx = this.x;
       yield;
     }
   }
 
-  // *whenKeySPressed(){
-  //   yield* sFunction3(this, this.x);
-  // }
-
   *whenIReceiveOrdercomplete() {
     yield* this.wait(2);
-    // if(this.stage.costume.name === "Bar"){
     this.visible = true;
-    // }
     this.goto(this.sprites["Customer"].x, this.sprites["Customer"].y);
     this.x += 130;
     this.y -= 60;
-    // console.log("whenIReceiveOrdercomplete:     x: " + this.x + "y: " + this.y)
     yield* this.wait(2);
   }
 
   *whenKeySPressed() {
     yield* sFunction3(this, this.x);
   }
-
-  // *whenthisspriteclicked() {
-  //   this.stage.vars.money += 5;
-  //   this.visible = false;
-  // }
 
   *whenIReceiveStartgame() {
     this.stage.watchers.money.visible = true;
