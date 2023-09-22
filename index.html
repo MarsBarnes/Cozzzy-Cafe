@@ -12,7 +12,31 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <button id="greenFlag">Restart</button>
+    <nav>
+      <button id="greenFlag">Restart</button>
+
+      <button class="button-link" id="portfolioButton">
+        To Mars' Portfolio
+      </button>
+      <script>
+        document
+          .getElementById("portfolioButton")
+          .addEventListener("click", function() {
+            window.location.href = "https://marsbarnes.github.io/Portfolio/";
+          });
+      </script>
+
+      <button class="button-link" id="githubButton">
+        To GitHub Repository
+      </button>
+      <script>
+        document
+          .getElementById("githubButton")
+          .addEventListener("click", function() {
+            window.location.href = "https://github.com/MarsBarnes/Cozzzy-Cafe";
+          });
+      </script>
+    </nav>
     <div id="project"></div>
     <script type="module">
       import project from "./index.js";
@@ -26,26 +50,26 @@
       project.greenFlag();
     </script>
     <table>
-        <tr>
-            <th>Key</th>
-            <th>Function</th>
-        </tr>
-        <tr>
-            <td>A</td>
-            <td>Move Left</td>
-        </tr>
-        <tr>
-            <td>D</td>
-            <td>Move Right</td>
-        </tr>
-        <tr>
-            <td>S</td>
-            <td>Pick Up/Set Down</td>
-        </tr>
-        <tr>
-            <td>Space</td>
-            <td>Pour</td>
-        </tr>
-    </table>    
+      <tr>
+        <th>Key</th>
+        <th>Function</th>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td>Move Left</td>
+      </tr>
+      <tr>
+        <td>D</td>
+        <td>Move Right</td>
+      </tr>
+      <tr>
+        <td>S</td>
+        <td>Pick Up/Set Down</td>
+      </tr>
+      <tr>
+        <td>Space</td>
+        <td>Pour</td>
+      </tr>
+    </table>
   </body>
 </html>
