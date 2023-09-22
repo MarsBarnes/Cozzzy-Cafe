@@ -20,7 +20,7 @@ td {
   border: 1px solid #ccc;
   padding: 8px;
   text-align: center;
-  font-family: sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #greenFlag {
@@ -28,10 +28,14 @@ td {
   margin: 20px;
   color: white;
   background-color: #203153;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
 }
+
 
 .button-link {
 appearance: auto;
+font-size: large;
     text-rendering: auto;
     color: buttontext;
     letter-spacing: normal;
@@ -58,9 +62,50 @@ appearance: auto;
   margin: 20px;
   color: white;
   background-color: #203153;
-  font-family: sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 nav {
   display: flex;
 }
+
+.styled-element {
+      appearance: auto;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: buttonface;
+    writing-mode: horizontal-tb !important;
+    margin: 0em;
+    padding-block: 1px;
+    padding-inline: 6px;
+    padding-top: 4px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+     height: 30px;
+  margin: 20px;
+  color: white;
+  background-color: #203153;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  align-items: center;
+    }
+
+    /* Remove the default anchor link styling */
+    .styled-element:hover,
+    .styled-element:active {
+      background-color: #203153;
+      text-decoration: none;
+    }
